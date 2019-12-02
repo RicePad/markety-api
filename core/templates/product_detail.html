@@ -36,17 +36,14 @@
 
             <p class="lead">
               <span class="mr-1">
-                <del>$200</del>
+                <del>${{ item_detail.price }}</del>
               </span>
-              <span>$100</span>
+              <span>${{ item_detail.discount_price}}</span>
             </p>
 
-            <p class="lead font-weight-bold">Description</p>
+            <p class="lead font-weight-bold">{{ item_detail.title}}</p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa
-              sint voluptatibus!
-              Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
-
+            <p>{{ item_detail.description }}</p>
             <form class="d-flex justify-content-left">
               <!-- Default input -->
               <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
@@ -75,10 +72,7 @@
 
           <h4 class="my-4 h4">Additional information</h4>
 
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
-            voluptates,
-            quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
-
+          <p>{{ item_detail.description }}</p>
         </div>
         <!--Grid column-->
 
