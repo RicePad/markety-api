@@ -5,18 +5,13 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 class HomeView(ListView):
     model = Item
+    context_object_name = "item_list"
     template_name = "home.html"
 
 
-class ProductDetailView(DetailView):
+class ItemDetailView(DetailView):
     model = Item
+    context_object_name = "item_detail"
     template_name = "product_detail.html"
-
-
-def products(request):
-    context = {
-        'items': Item.objects.all()
-    }
-    return render(request, "product.html", context)
 
 
