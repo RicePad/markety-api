@@ -40,7 +40,6 @@ class OrderItem(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
-
     items = models.ManyToManyField(OrderItem, verbose_name=(""))
     start_date = models.DateTimeField((""), auto_now=False, auto_now_add=True)
     ordered_date = models.DateTimeField((), auto_now=False, auto_now_add=False)
