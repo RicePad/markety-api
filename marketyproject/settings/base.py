@@ -43,7 +43,6 @@ INSTALLED_APPS = [
 
     # My Apps
     'core',
-    'posts',
     #Pip installs
     'rest_framework',
     
