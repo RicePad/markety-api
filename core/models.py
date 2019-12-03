@@ -17,6 +17,11 @@ LABEL_CHOICES = (
 
 )
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
+    one_click_purchasing = models.BooleanField(default=False)
+
+
 class Item(models.Model):
     title = models.CharField(max_length=100)
     price = models.FloatField()

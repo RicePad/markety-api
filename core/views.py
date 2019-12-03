@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Item
+from .models import Item, UserProfile
 from django.views.generic import TemplateView, ListView, DetailView
 # Create your views here.
 
