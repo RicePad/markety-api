@@ -18,9 +18,9 @@ LABEL_CHOICES = (
 
 )
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
-    one_click_purchasing = models.BooleanField(default=False)
+# class UserProfile(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
+#     one_click_purchasing = models.BooleanField(default=False)
 
 
 class Item(models.Model):
@@ -40,13 +40,22 @@ class Item(models.Model):
             'slug': self.slug
         })
 
+    def get_add_to_cart_url(self):
+        return reverse("core:add-to-cart", kwargs={
+            'slug': self.slug
+        })
+
 
 # Item added to the cart
 class OrderItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
 
     def __str__(self):
-        return self.title
+        return f"{self.quantity} of {self.item.title}"
     
 
 class Order(models.Model):
