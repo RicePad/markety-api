@@ -43,3 +43,27 @@ def add_to_cart(request, slug):
         messages.info(request, "This item was added to your cart")
         return redirect("core:home")
 
+def remove_from_cart(request, slug):
+    item = get_object_or_404(Item, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+
+    if order_qs.exists():
+        order = order_qs[0]
+        #check to see if the order item is in the order
+        if order.items.filter(item__slug=item.slug).exists():
+            order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
+            order.items.remove(order_item)
+            messages.info(request, "this item was removed from your cart.")
+            return redirect("core:home")
+        else:
+            messages.info(request, "this item was not in your cart")
+            return redirect("core:product-detail", slug=slug)
+    else:
+        messages.info(request, "you do not have an active order")
+        return redirect("core:product-detail", slug=slug)
+
+
+
