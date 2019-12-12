@@ -46,6 +46,18 @@
                             </td>
                         </tr>
                     {% endfor %}
+                    {% if object.get_total%}
+                        <tr>
+                            <td colspan="4"><b>Order Total</b></td>
+                            <td><b>${{ object.get_total }}</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                            <a class='btn btn-warning float-right ml-2' href='/checkout/'>Proceed to checkout</a>
+                            <a class='btn btn-primary float-right' href='/'>Continue shopping</a>
+                            </td>
+                        </tr>
+                    {% endif %}
                 </tbody>
             </table>
         </div>
