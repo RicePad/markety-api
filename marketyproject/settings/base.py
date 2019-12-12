@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -157,6 +159,9 @@ AUTHENTICATION_BACKENDS = (
 )
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
+#Direct LOG OUT without the intermediate step
+ACCOUNT_LOGOUT_ON_GET = True
 
 # CRISPY FORMS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
