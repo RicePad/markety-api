@@ -63,7 +63,12 @@ class OrderItem(models.Model):
 
     def get_total_discount_item_price(self):
         return self.quantity * self.item.discount_price
-
+    
+    def get_remove_from_cart_url(self):
+        return reverse("core:remove-from-cart", kwargs={
+            'slug': self.slug
+        })
+    
     def __str__(self):
         return f"{self.quantity} of {self.item.title}"
     
