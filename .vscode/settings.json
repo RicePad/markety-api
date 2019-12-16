@@ -1,3 +1,5 @@
-{
-    "python.pythonPath": "/usr/local/bin/python3"
+{   
+    "auto-close-tag.activationOnLanguage": ["*"],
+    "auto-close-tag.enableAutoCloseTag": true,
+
 }

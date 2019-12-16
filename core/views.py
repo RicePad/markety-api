@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CheckoutForm
 
 # Create your views here.
 
@@ -33,8 +34,22 @@ class OrderSummaryView(LoginRequiredMixin, View):
             messages.warning(self.request, "You do not have an active order")
             return redirect("/")
 
-class CheckoutView(TemplateView):
-    template_name = "checkout_form.html"
+class CheckoutView(View):
+    def get(self, *args, **kwargs):
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+            form = CheckoutForm()
+            
+            context = {
+                'form': form
+            }
+            
+            return render(self.request, "checkout_form.html", context)
+
+        except ObjectDoesNotExist:
+            messages.info(self.request, "You do not have an active order")
+            return redirect("core:checkout")
+
 
 @login_required
 def add_to_cart(request, slug):
