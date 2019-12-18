@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Item, OrderItem, Order
+from .models import Item, OrderItem, Order, Address
 from django.views.generic import TemplateView, ListView, DetailView, View
 from django.utils import timezone
 from django.contrib import messages
@@ -41,14 +41,39 @@ class CheckoutView(View):
             form = CheckoutForm()
             
             context = {
-                'form': form
+                'form': form,
+                'order': order
             }
             
-            return render(self.request, "checkout_form.html", context)
+            shipping_address_qs = Address.objects.filter(
+                user = self.request.user, 
+                address_type='S',
+                default=True            
+                )
+            
+            if shipping_address_qs.exists():
+                context.update(
+                    {'default_shipping_address': shipping_address_qs[0]})
+            
 
+            billing_adress_qs = Address.objects.filter(
+                user = self.request.user,
+                address_type='B',
+                default=True
+            )
+
+            if billing_adress_qs.exists():
+                context.update(
+                    {'default_billing_address': billing_adress_qs[0]}
+                )
+
+            return render(self.request, "checkout_form.html", context)
         except ObjectDoesNotExist:
             messages.info(self.request, "You do not have an active order")
             return redirect("core:checkout")
+
+    def post(self):
+        pass
 
 
 @login_required
