@@ -27,6 +27,9 @@ ADDRESS_CHOICES =(
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
     stripe_charge_id = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.user.username
 
 class Item(models.Model):
     title = models.CharField(max_length=100)
