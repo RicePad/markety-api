@@ -82,7 +82,7 @@ class CheckoutView(View):
     def post(self, *args, **kwargs):
         form = CheckoutForm(self.request.POST or None)
         try:    
-            order = order.objects.get(user=self.request.user, ordered=False)
+            order = Order.objects.get(user=self.request.user, ordered=False)
             if form.is_valid():
                 use_default_shipping = form.cleaned_data.get('use_default_shipping')
                 if use_default_shipping:
@@ -114,7 +114,7 @@ class CheckoutView(View):
                             aparment_address=shipping_address2,
                             country=shipping_country,
                             zip=shipping_zip,
-                            adress_type='S'
+                            address_type='S'
 
                         )
                         shipping_adddress.save()
@@ -172,7 +172,7 @@ class CheckoutView(View):
                         billing_address = Address(
                             user=self.request.user,
                             street_address=billing_address1,
-                            apartment_address=billing_address2,
+                            aparment_address=billing_address2,
                             country=billing_country,
                             zip=billing_zip,
                             address_type='B'
@@ -186,9 +186,20 @@ class CheckoutView(View):
                         if set_default_billing:
                             billing_address.default = True
                             billing_address.save()
+                        else:
+                            messages.info(self.request, "please fill in the required billing address fields")
                     else:
                         messages.info(self.request, "Please fill in the required address fields")
-                    
+                
+                payment_option = form.cleaned_data.get('payment_option')
+
+                if payment_option == 'S':
+                    return redirect('core:payment', payment_option='stripe')
+                elif payment_option == 'P':
+                    return redirect('core:payment', payment_option='paypal')
+                else:
+                    messages.warning(self.request, "Invalid payment option selected")
+                    return redirect('core:checkout')
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect("core:order-summary")

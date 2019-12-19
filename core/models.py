@@ -24,10 +24,9 @@ ADDRESS_CHOICES =(
     ('S', 'Shipping')
 ) 
 
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
-#     one_click_purchasing = models.BooleanField(default=False)
-
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
+    stripe_charge_id = models.CharField(max_length=50)
 
 class Item(models.Model):
     title = models.CharField(max_length=100)
@@ -120,3 +119,12 @@ class Address(models.Model):
 
     class Meta:
         verbose_name_plural = "Addresses"
+
+class Payment(models.Model):
+    stripe_charge_id = models.CharField(max_length=50)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    amount = models.FloatField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
