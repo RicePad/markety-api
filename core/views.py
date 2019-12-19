@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item, OrderItem, Order, Address
 from django.views.generic import TemplateView, ListView, DetailView, View
@@ -7,6 +8,12 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CheckoutForm
+
+import random
+import string
+import stripe
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
 
 # Create your views here.
 
@@ -203,6 +210,10 @@ class CheckoutView(View):
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect("core:order-summary")
+
+
+class PaymentView(View):
+    pass
 
 @login_required
 def add_to_cart(request, slug):
