@@ -213,7 +213,22 @@ class CheckoutView(View):
 
 
 class PaymentView(View):
-    pass
+    def get(self, *args, **kwargs):
+        order = Order.objects.get(user=self.request.user, ordered=False)
+        if order.billing_address:
+            context = {
+                'order': order,
+            }
+            return render(self.request, "payment.html", context)
+        else:
+            messages.warning(self.request, "you have not added billing address")
+            return redirect("core:checkout")   
+
+    def post(self, *args, **kwargs):
+        pass
+
+class Payment(TemplateView):
+    template_name = "payment.html"
 
 @login_required
 def add_to_cart(request, slug):
