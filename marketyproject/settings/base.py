@@ -149,7 +149,7 @@ STATICFILES_DIRS = (
 
 VENV_PATH = os.path.dirname(BASE_DIR)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(VENV_PATH, 'media')
+MEDIA_ROOT = os.path.join(VENV_PATH, 'core/media')
 
 # Auth
 

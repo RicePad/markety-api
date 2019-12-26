@@ -6,9 +6,9 @@ from django_countries.fields import CountryField
 # Create your models here.
 
 CATEGORY_CHOICES = (
-    ('S', 'Shirt'),
-    ('SW', 'Sport wear'),
-    ('OW', 'Outwear')
+    ('F', 'Fruits'),
+    ('V', 'Vegetables'),
+    ('D', 'Dairy')
 
 )
 
@@ -39,6 +39,7 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
+    image  = models.ImageField()
 
     def __str__(self):
         return self.title
