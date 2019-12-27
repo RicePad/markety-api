@@ -51,10 +51,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'django_countries',
+    
 
    
     #Pip installs
     'rest_framework',
+    'bootstrap4',
+
     
 ]
 
