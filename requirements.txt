@@ -20,4 +20,6 @@ django-crispy-forms
 django-countries
 stripe==2.27.0
 Pillow
+django_compressor==2.2
+django-libsass==0.7
 

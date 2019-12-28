@@ -1,10 +1,5 @@
 {% load static %}
-{# Load the tag library #}
-{% load bootstrap4 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
+{% load compress %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +9,30 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Markety</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <link rel="stylesheet" href="{% static 'css/hello.css' %}" >
+  <link rel="stylesheet" href="{% static 'css/hello.css' %}" >  
+    
+  {% compress css %}
+      <link type="text/x-scss" href="{% static 'sass/style.scss' %}" rel="stylesheet" media="screen">
+  {% endcompress %}
+
+  {% compress css %}
+        <link type="text/x-scss" href="{% static 'css/bootstrap/bootstrap.scss' %}" rel="stylesheet" media="screen">
+  {% endcompress %}
+
+    
+    <!-- FONTAWESOME  -->
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <script src="{% static 'js/all.js' %}"></script>
+
+
+    <!-- MDB THEME  -->
+  {% comment %} <link href="{% static 'cssa/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cssa/mdb.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cssa/style.min.css' %}" rel="stylesheet"> {% endcomment %}
   
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
-  
-  <!-- START OF DIGIPRO THEME -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+   <!-- START OF DIGIPRO THEME -->
+
+    
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
@@ -31,7 +42,7 @@
     <link rel="stylesheet" href="{% static 'css/slick.css' %}">
     <link rel="stylesheet" href="{% static 'css/trumbowyg.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/venobox.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+
 
 
    <!--//////////////////// JS GOES HERE ////////////////-->
@@ -63,14 +74,14 @@
 
   
   <!-- SCRIPTS -->
-  <!-- JQuery -->
+  {% comment %} <!-- JQuery -->
   <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script> {% endcomment %}
 
 
-  <style type="text/css">
+  {% comment %} {% comment %} <style type="text/css">
     html,
     body,
     header,
@@ -93,11 +104,11 @@
         height: 100vh;
       }
     }
-  </style>
+  </style> {% endcomment %}
 </head>
 
 <body class="home1 mutlti-vendor">
-{% include "navbar.html" %}
+{% include "navbar2.html" %}
     <div class="mt-5 pt-4">
       {% if messages %}
           {% for message in messages %}

@@ -1,4 +1,9 @@
  {% load static %}
+ {% load compress %}
+    {% compress css %}
+            <link type="text/x-scss" href="{% static 'sass/style.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+    
 
   <!-- start menu-area -->
     <div class="menu-area">
