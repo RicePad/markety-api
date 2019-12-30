@@ -75,44 +75,83 @@
                     </div>
                 </div>
                 <!-- Start .col-md-4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="product-single latest-single">
-                        <div class="featured-badge">
-                            <span>Featured</span>
+                {% for item in item_list%}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-single latest-single">
+                            <div class="featured-badge">
+                                <span>Featured</span>
+                            </div>
+                            <div class="product-thumb">
+                                <figure>
+                                    <img src="{{ item.image.url }}" width="360" height="230">
+                                    <figcaption>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="">
+                                                    <span class="fas fa-shopping-basket"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ item.get_absolute_url }}">Detail</a>
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- Ends: .product-thumb -->
+                            <div class="product-excerpt">
+                                <h5>
+                                    <a href="">{{ item.title }}</a>
+                                </h5>
+                                <ul class="titlebtm">
+                                    <li>
+                                        <img class="auth-img" src="static/img/auth-img2.png" alt="author image">
+                                        <p>
+                                            <a href="{{ item.get_absolute_url }}">{{ item.get_category_display }}</a>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <ul class="product-facts clearfix">
+                                    <strong>
+                                        {% if item.discount_price %}
+                                            <li class="price">${{ item.discount_price }}</li>
+                                        {% else %}
+                                             <li class="price">${{ item.price }}</li>
+                                        {% endif %}
+                                    </strong>
+                                    <li class="product-fav">
+                                        <span class="fas fa-heart text-danger" title="Add to collection"  data-toggle="tooltip"></span>
+                                    </li>
+                                    <li class="product-rating">
+                                        <ul class="list-unstyled">
+                                            <li class="stars">
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                
+                            </div>
+                            <!-- Ends: .product-excerpt -->
                         </div>
-                        <div class="product-thumb">
-                            <figure>
-                                <img src="static/img/product1.png" alt="" class="img-fluid">
-                                <figcaption>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <a href="">
-                                                <span class="icon-basket"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="">Live Demo</a>
-                                        </li>
-                                    </ul>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <!-- Ends: .product-thumb -->
-                        <div class="product-excerpt">
-                            <h5>
-                                <a href="">E-commerce Shopping Cart</a>
-                            </h5>
-                            <ul class="product-facts clearfix">
-                                <li class="price">$20</li>
-                                <li class="sells">
-                                    <span class="icon-basket"></span>81
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Ends: .product-excerpt -->
+                        <!-- Ends: .product-single -->
                     </div>
-                    <!-- Ends: .product-single -->
-                </div>
+                {% endfor %}
                 <!-- Ends: .col-md-4 -->
             </div>
         </div>
@@ -142,54 +181,83 @@
                 </div>
                 <!-- Ends: .col-md-12/Section Title -->
                 <!-- Start .product-list -->
-                <div class="col-md-12 product-list">
-                    <div class="row">
-                        <!-- Start .col-md-4 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product-single latest-single">
-                                <div class="product-thumb">
-                                    <figure>
-                                        <img src="static/img/product1.png" alt="" class="img-fluid">
-                                        <figcaption>
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <a href="">
-                                                        <span class="icon-basket"></span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="">Live Demo</a>
-                                                </li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <!-- Ends: .product-thumb -->
-                                <div class="product-excerpt">
-                                    <h5>
-                                        <a href="">E-commerce Shopping Cart</a>
-                                    </h5>
-                                    <ul class="titlebtm">
-                                        <li>
-                                            <img class="auth-img" src="static/img/auth-img2.png" alt="author image">
-                                            <p>
-                                                <a href="#">Theme-Valley</a>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-facts clearfix">
-                                        <li class="price">$20</li>
-                                        <li class="sells">
-                                            <span class="icon-basket"></span>81
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Ends: .product-excerpt -->
+                {% for item in item_list%}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-single latest-single">
+                            <div class="featured-badge">
+                                <span>Featured</span>
                             </div>
-                            <!-- Ends: .product-single -->
+                            <div class="product-thumb">
+                                <figure>
+                                    <img src="{{ item.image.url }}" width="360" height="230">
+                                    <figcaption>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="">
+                                                    <span class="fas fa-shopping-basket"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ item.get_absolute_url }}">Detail</a>
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <!-- Ends: .product-thumb -->
+                            <div class="product-excerpt">
+                                <h5>
+                                    <a href="">{{ item.title }}</a>
+                                </h5>
+                                <ul class="titlebtm">
+                                    <li>
+                                        <img class="auth-img" src="static/img/auth-img2.png" alt="author image">
+                                        <p>
+                                            <a href="{{ item.get_absolute_url }}">{{ item.get_category_display }}</a>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <ul class="product-facts clearfix">
+                                    <strong>
+                                        {% if item.discount_price %}
+                                            <li class="price">${{ item.discount_price }}</li>
+                                        {% else %}
+                                             <li class="price">${{ item.price }}</li>
+                                        {% endif %}
+                                    </strong>
+                                    <li class="product-fav">
+                                        <span class="fas fa-heart text-danger" title="Add to collection"  data-toggle="tooltip"></span>
+                                    </li>
+                                    <li class="product-rating">
+                                        <ul class="list-unstyled">
+                                            <li class="stars">
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                
+                            </div>
+                            <!-- Ends: .product-excerpt -->
                         </div>
-                        <!-- Ends: .col-md-4 -->
-                </div>
+                        <!-- Ends: .product-single -->
+                    </div>
+                {% endfor %}
                 <!-- Ends: .product-list -->
             </div>
         </div>
