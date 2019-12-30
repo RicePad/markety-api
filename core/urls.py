@@ -15,8 +15,8 @@ from .views import (
 app_name = 'core'
 
 urlpatterns = [
-    path('', HomeView.as_view(), name="home"),
-    path('homeview', HomeViewList.as_view(), name="homeview"),
+    # path('', HomeView.as_view(), name="home"),
+    path('', HomeViewList.as_view(), name="home"),
     path('order-summary', OrderSummaryView.as_view(), name="order-summary"),
     path('product/<int:pk>/', ItemDetailView.as_view(), name="product-detail"),
     path('product/<slug>/', ItemDetailView.as_view(), name="product-detail"),
