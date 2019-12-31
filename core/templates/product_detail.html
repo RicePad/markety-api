@@ -1,126 +1,259 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-  <main class="mt-5 pt-4">
-    <div class="container dark-grey-text mt-5">
-
-      <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-
-          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-
-          <!--Content-->
-          <div class="p-4">
-
-            <div class="mb-3">
-              <a href="">
-                <span class="badge purple mr-1">{{ item_detail.category }}</span>
-              </a>
-              <a href="">
-                <span class="badge blue mr-1">New</span>
-              </a>
-              <a href="">
-                <span class="badge red mr-1">Bestseller</span>
-              </a>
+  <!--================================
+    START BREADCRUMB AREA
+=================================-->
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 breadcrumb-contents">
+                <h2 class="page-title">DigiPro Multipurpose Marketplace HTML Template</h2>
+                <div class="breadcrumb">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">Corporate & Business</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <p class="lead">
-              <span class="mr-1">
-                <del>${{ item_detail.price }}</del>
-              </span>
-              <span>${{ item_detail.discount_price}}</span>
-            </p>
-
-            <p class="lead font-weight-bold">{{ item_detail.title}}</p>
-
-            <p>{{ item_detail.description }}</p>
-            {% comment %} <form class="d-flex justify-content-left">
-              <!-- Default input -->
-              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
-
-            </form> {% endcomment %}  
-            {% if request.user.is_authenticated %}
-              <a href="{{ item_detail.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
-                Add to cart
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </a>
-
-              <a href="{{ item_detail.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
-              Remove from cart
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </a>
-            {% endif %}
-        
-          </div>
-          <!--Content-->
-
+            <!-- end /.col-md-12 -->
         </div>
-        <!--Grid column-->
-
-      </div>
-      <!--Grid row-->
-
-      <hr>
-
-      <!--Grid row-->
-      <div class="row d-flex justify-content-center wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-md-6 text-center">
-
-          <h4 class="my-4 h4">Additional information</h4>
-
-          <p>{{ item_detail.description }}</p>
-        </div>
-        <!--Grid column-->
-
-      </div>
-      <!--Grid row-->
-
-      <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4">
-
-          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-      </div>
-      <!--Grid row-->
-
+        <!-- end /.row -->
     </div>
-  </main>
+    <!-- end /.container -->
+</section>
+<!--================================
+    END BREADCRUMB AREA
+=================================-->
+<!--============================================
+    START SINGLE PRODUCT DESCRIPTION AREA
+==============================================-->
+<section class="single-product-desc">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="item-preview">
+                   <img src="{{ item_detail.image.url }}" class="img-fluid" alt="" width="750" height="430">
+                    <div class="item__preview-thumb">
+                        <div class="item-action border-none">
+                            <div class="action-btns">
+                                <a href="#" class="btn btn--lg btn-primary">Live Preview</a>
+                                <a href="#" class="btn btn--lg btn--icon btn btn-outline-secondary">
+                                    <span class="fas fa-heart text-danger"></span>Add To Favorites</a>
+                            </div>
+                        </div>
+                        <!-- end /.item__action -->
 
+                        <div class="item-activity">
+                            <div class="activity-single">
+                                <p>
+                                    <span class="fas fa-utensils" style="color:#4033bd;"></span> Total Orders
+                                </p>
+                                <p>2451</p>
+                            </div>
+                            <div class="activity-single">
+                                <p>
+                                    <span class="fas fa-heart text-danger"></span> Favorities
+                                </p>
+                                <p>452</p>
+                            </div>
+                            <div class="activity-single">
+                                <p>
+                                    <span class="fas fa-eye" style="color:#4033bd;"></span>Views
+                                </p>
+                                <p>3425</p>
+                            </div>
+                        </div>
+                        <!-- Ends: /.item-activity -->
+                    </div>
+                </div>
+                <!-- end /.item-preview-->
+
+                <div class="item-info">
+                    <div class="item-navigation">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li>
+                                <a href="#product-details" class="active" id="tab1" aria-controls="product-details"
+                                   role="tab" data-toggle="tab" aria-selected="true">
+                                    <span class="icon icon-docs"></span> Item Details</a>
+                            </li>
+                            <li>
+                                <a href="#product-comment" id="tab2" aria-controls="product-comment" role="tab"
+                                   data-toggle="tab">
+                                    <span class="icon icon-bubbles"></span> Comments </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end /.item-navigation -->
+
+                    <div class="tab-content">
+                        <div class="fade show tab-pane product-tab active" id="product-details" role="tabpanel"
+                             aria-labelledby="tab1">
+                            <div class="tab-content-wrapper">
+                                <h3>Details</h3>
+                                <p>{{ item_detail.description }}</p>
+                            </div>
+                        </div>
+                        <!-- end /.tab-content -->
+
+                        <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel"
+                             aria-labelledby="tab2">
+                            <div class="thread">
+                                
+
+                                <!-- Start Pagination -->
+                                <nav class="pagination-default comments-pagination">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true"><i class="fa fa-long-arrow-left"></i></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">10</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- Ends: /pagination-default -->
+
+                                <div class="comment-form-area">
+                                    <h4>Leave a comment</h4>
+                                    <!-- comment reply -->
+                                    <div class="media comment-form">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object" src="images/m7.png" alt="Commentator Avatar">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <form action="#" class="comment-reply-form">
+                                                <textarea name="reply-comment"
+                                                          placeholder="Write your comment..."></textarea>
+                                                <button class="btn btn--sm btn-primary">Post Comment</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- comment reply -->
+                                </div>
+                                <!-- end /.comment-form-area -->
+                            </div>
+                            <!-- end /.comments -->
+                        </div>
+                        <!-- end /.product-comment -->
+                    </div>
+                    <!-- end /.tab-content -->
+                </div>
+                <!-- end /.item-info -->
+            </div>
+            <!-- end /.col-md-8 -->
+
+            <div class="col-lg-4 col-md-12">
+                <aside class="sidebar sidebar--single-product">
+                    <div class="sidebar-card card-pricing">
+                        <div class="price border-none">
+                            <h1>
+                            
+                                <span>$<del>{{ item_detail.price }}</del></span>
+                                <span>${{ item_detail.discount_price}}</span>
+
+                            </h1>
+                        </div>
+                        <div class="purchase-button">
+                            <a href="#" class="btn btn--lg btn-primary">Add to cart</a>
+                        </div>
+                        <!-- end /.purchase-button -->
+                    </div>
+                    <!-- end /.sidebar--card -->
+
+                    <div class="sidebar-card card--product-infos">
+                        <div class="card-title">
+                            <h4>Product Information</h4>
+                        </div>
+
+                        <ul class="infos">
+                            <li>
+                                <p class="data-label">Name</p>
+                                <p class="info">{{ item_detail.title }}</p>
+                            </li>
+                            <li>
+                                <p class="data-label">Category</p>
+                                <p class="info">{{ item_detail.get_category_display }}</p>
+                            </li>
+                            <li>
+                                <p class="data-label">Phone Number</p>
+                                <p class="info">813-321-4405</p>
+                            </li>
+                            <li>
+                                <p class="data-label">Delivery Hours</p>
+                                <p class="info">Mon-Sun: 7:30am-8pm</p>
+                            </li>
+                            <li>
+                                <p class="data-label">Distance</p>
+                                <p class="info">6.7 Miles (from Tampa, Fl, as the crow flies)</p>
+                            </li>
+                            <li>
+                                <p class="data-label">Delivery Fee</p>
+                                <p class="info">$25 & up to this location</p>
+                            </li>
+                            <li>
+                                <p class="data-label">Food Minimum</p>
+                                <p class="info">$100.00 minimum</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end /.aside -->
+
+                    <div class="social-share-card sidebar-card">
+                        <p>Social Share:</p>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-pinterest"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Ends: /.social-share-card -->
+                </aside>
+                <!-- end /.aside -->
+            </div>
+            <!-- end /.col-md-4 -->
+        </div>
+        <!-- end /.row -->
+    </div>
+    <!-- end /.container -->
+</section>
+<!--===========================================
+        END SINGLE PRODUCT DESCRIPTION AREA
+    ===============================================-->
 {% endblock content %}

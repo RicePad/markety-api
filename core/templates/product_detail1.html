@@ -1,0 +1,124 @@
+{% block content %}
+
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">{{ item_detail.category }}</span>
+              </a>
+              <a href="">
+                <span class="badge blue mr-1">New</span>
+              </a>
+              <a href="">
+                <span class="badge red mr-1">Bestseller</span>
+              </a>
+            </div>
+
+            <p class="lead">
+              <span class="mr-1">
+                <del>${{ item_detail.price }}</del>
+              </span>
+              <span>${{ item_detail.discount_price}}</span>
+            </p>
+
+            <p class="lead font-weight-bold">{{ item_detail.title}}</p>
+
+            <p>{{ item_detail.description }}</p>
+            {% comment %} <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+            </form> {% endcomment %}  
+            {% if request.user.is_authenticated %}
+              <a href="{{ item_detail.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+                Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+
+              <a href="{{ item_detail.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
+              Remove from cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+            {% endif %}
+        
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <hr>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+          <h4 class="my-4 h4">Additional information</h4>
+
+          <p>{{ item_detail.description }}</p>
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+
+          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="{{ item_detail.image.url }}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+
+{% endblock content %}

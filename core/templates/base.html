@@ -73,43 +73,10 @@
     <!-- endinject -->
 <!-- END OF DIGIPRO THEME -->
 
-  
-  <!-- SCRIPTS -->
-  {% comment %} <!-- JQuery -->
-  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script> {% endcomment %}
-
-
-  {% comment %} {% comment %} <style type="text/css">
-    html,
-    body,
-    header,
-    .carousel {
-      height: 60vh;
-    }
-    @media (max-width: 740px) {
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
-    }
-    @media (min-width: 800px) and (max-width: 850px) {
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
-    }
-  </style> {% endcomment %}
 </head>
 
 <body class="home1 mutlti-vendor">
-{% include "navbar2.html" %}
+{% include "navbar.html" %}
     <div class="mt-5 pt-4">
       {% if messages %}
           {% for message in messages %}
