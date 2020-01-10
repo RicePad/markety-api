@@ -18,12 +18,20 @@ from django.urls import path, include
 from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+from core.api_views import ItemAPIViewSet, OrderItemAPIViewSet
 
+
+#API ROUTING
+router = routers.DefaultRouter()
+router.register('items', ItemAPIViewSet)
+router.register('order-items', OrderItemAPIViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('core.urls', namespace='core')),
+    path('api/v1/', include(router.urls)),
 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
