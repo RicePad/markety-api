@@ -4,6 +4,7 @@
 __pycache__/
 local_settings.py
 db.sqlite3
+docker-compose-prod.yml
 /media
 /marketyproject/static
 /marketyproject/static_root
