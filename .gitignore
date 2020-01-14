@@ -6,4 +6,5 @@ local_settings.py
 db.sqlite3
 /media
 /marketyproject/static
+/marketyproject/static_root
 /marketyproject/settings/production.py
