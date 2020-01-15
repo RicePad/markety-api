@@ -5,7 +5,10 @@ __pycache__/
 local_settings.py
 db.sqlite3
 docker-compose-prod.yml
+/.env
 /media
 /marketyproject/static
 /marketyproject/static_root
 /marketyproject/settings/production.py
+/marketyproject/.env
+

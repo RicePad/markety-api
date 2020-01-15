@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from django.urls import reverse_lazy
 
 
@@ -24,7 +26,7 @@ TEMPL_DIR = os.path.join(BASE_DIR, "templates")
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cbx1#d0_pudpb(5ylam!ub6al(91pktgz)x5jl%b(9)$p2#ien'
+SECRET_KEY = os.getenv("MARKETY_DEV_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -118,6 +120,7 @@ DATABASES = {
         'PORT': '5432' # default postgres port
     }
 }
+
 
 
 
