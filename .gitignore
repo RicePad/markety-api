@@ -11,4 +11,7 @@ docker-compose-prod.yml
 /marketyproject/static_root
 /marketyproject/settings/production.py
 /marketyproject/.env
+/marketyproject/debug.log
+
+
 

@@ -166,6 +166,7 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static_files/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -210,3 +211,23 @@ ACCOUNT_LOGOUT_ON_GET = True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STRIPE_SECRET_KEY = ''
+
+## Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
