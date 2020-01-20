@@ -1,0 +1,38 @@
+version: '3'
+volumes:
+  pgdata:
+  static_files:
+services:
+  python:
+    # image: python:3.4
+    build:
+      context: .
+      dockerfile: docker/production/python/Dockerfile
+    environment:
+      - DJANGO_SETTINGS_MODULE=marketyproject.settings.production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - static_files:/static_files
+    ports:
+      - 8000:8000
+    command: gunicorn -w 4 marketyproject.wsgi -b 0.0.0.0:8000
+  postgres:
+    image: postgres:10.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASS: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    restart: always
+  nginx:
+    # image: nginx
+    build:
+      context: .
+      dockerfile: docker/production/nginx/Dockerfile
+    volumes:
+      - static_files:/static_files
+    ports:
+      - 80:80
