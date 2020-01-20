@@ -1,0 +1,81 @@
+@import "scss/functions";
+@import "scss/mixins";
+@import "scss/variables";
+
+// theme color
+$primary:       #6E4FF6;
+$secondary:     #1DC9B7;
+$success:       #4caf50;
+$info:          #36A3F7;
+$warning:       #FFB822;
+$danger:        #F4516C;
+$dark:          #202428;
+$light:         #ffffff;
+$light-gray:    #9192a3;
+
+$theme-colors: ();
+
+// text colors
+$title-color: #313342;
+$text-color: #6b6e8a;
+$text-color2: #6F7495;
+
+// section background
+$section-bg: #eff1f5;
+$bgcolor: #f1f2f7;
+$bgcolor2: #f6f7fb;
+$bgcolor3: #f0f1f5;
+$dark-bg: #2c333e;
+
+//fonts
+$font-family-base:            "Work Sans", sans-serif;
+
+//body
+$body-color:                  $text-color2;
+
+//border color
+$border-color:                #ebedf2;
+
+//heading
+$headings-color:              $title-color;
+$headings-font-weight:        500;
+$h1-font-size:                36px;
+$h2-font-size:                30px;
+$h3-font-size:                24px;
+$h4-font-size:                20px;
+$h5-font-size:                18px;
+$h6-font-size:                16px;
+
+//display sizes
+$display1-size:               60px;
+$display2-size:               54px;
+$display3-size:               48px;
+$display4-size:               42px;
+$display1-weight:             500;
+$display2-weight:             500;
+$display3-weight:             500;
+$display4-weight:             500;
+
+//box shadow
+$box-shadow-lg2:              0 8px 10px rgba($primary, .08);
+
+//Transition
+$transition-base:             .3s ease;
+
+//Progress
+$progress-height:             8px;
+$progress-border-radius:      200px;
+$progress-bar-bg:             $secondary;
+
+//blockquote
+$blockquote-font-size:        20px;
+
+//pagination
+$pagination-hover-color:                  $secondary;
+$pagination-hover-bg:                     none;
+$pagination-hover-border-color:           inherit;
+$pagination-active-bg:                    $secondary;
+$pagination-active-border-color:          $secondary;
+$pagination-disabled-border-color:        $border-color;
+
+@import "scss/variables";
