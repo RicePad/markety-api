@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'compressor',
+    'django_s3_storage',
 
 
     
@@ -229,5 +230,13 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+    },
+}
+
+#AMAZON S3 BUCKET FOR IMAGE UPLOAD
+S3DIRECT_DESTINATIONS = {
+    'primary_destination': {
+        'key': 'uploads/',
+        'allowed': ['image/jpg', 'image/jpeg', 'image/png', 'video/mp4'],
     },
 }
