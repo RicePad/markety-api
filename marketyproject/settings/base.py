@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    's3direct',
+
      # My Apps
     'core',
     
@@ -60,7 +62,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'compressor',
-    'django_s3_storage',
+
 
 
     
@@ -105,22 +107,22 @@ WSGI_APPLICATION = 'marketyproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db', # set in docker-compose.yml
-        'PORT': '5432' # default postgres port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'HOST': 'db', # set in docker-compose.yml
+#         'PORT': '5432' # default postgres port
+#     }
+# }
 
 
 
@@ -233,10 +235,20 @@ LOGGING = {
     },
 }
 
-#AMAZON S3 BUCKET FOR IMAGE UPLOAD
+
+
+# AMAZON S3 BUCKET FOR IMAGE UPLOAD
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_ENDPOINT_URL")
+
+
+
 S3DIRECT_DESTINATIONS = {
     'primary_destination': {
-        'key': 'uploads/',
-        'allowed': ['image/jpg', 'image/jpeg', 'image/png', 'video/mp4'],
+        'key': 'uploads/'
+
     },
 }
