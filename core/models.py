@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
-from s3direct.fields import S3DirectField
+from .storage_backends import PublicMediaStorage
 
 
 
@@ -42,7 +42,7 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
-    image  = S3DirectField(dest='primary_destination', blank=True)
+    image  = models.FileField(storage=PublicMediaStorage())
 
     def __str__(self):
         return self.title

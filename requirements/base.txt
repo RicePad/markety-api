@@ -11,3 +11,5 @@ djoser
 django_compressor==2.2
 django-libsass
 django-s3-storage
+boto3
+django-storages
