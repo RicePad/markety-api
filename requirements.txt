@@ -23,4 +23,5 @@ stripe==2.27.0
 Pillow
 django_compressor==2.2
 django-libsass==0.7
-
+boto3
+django-storages
