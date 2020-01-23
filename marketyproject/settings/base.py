@@ -254,7 +254,7 @@ S3DIRECT_DESTINATIONS = {
 
 # DJANGO-STORAGES + Boto3 AMAZON S3 BUCKET 
 
-USE_S3 = os.getenv('USE_S3') == 'TRUE'
+USE_S3 = os.getenv('USE_S3') == 'FALSE'
 if USE_S3:
     # aws settings
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
@@ -269,6 +269,6 @@ if USE_S3:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'core.storage_backends.PublicMediaStorage'
 else:
-    MEDIA_URL = '/mediafiles/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
