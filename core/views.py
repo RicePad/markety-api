@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item, OrderItem, Order, Address
-from django.views.generic import TemplateView, ListView, DetailView, View
+from django.views.generic import TemplateView, ListView, DetailView, View, CreateView
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -28,6 +28,11 @@ class HomeViewList(ListView):
     context_object_name = "item_list"
     paginate_by = 5
     template_name = "homepage.html"
+
+class ItemCreateView(CreateView):
+    model = Item
+    fields = ('title', 'price', 'discount_price', 'category', 'label', 'description', 'image')
+    template_name = "item_create_form.html"
 
 class ItemDetailView(DetailView):
     model = Item

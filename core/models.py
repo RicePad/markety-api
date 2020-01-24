@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
+from django.utils.text import slugify
 from django_countries.fields import CountryField
 from .storage_backends import PublicMediaStorage
 
@@ -40,12 +41,28 @@ class Item(models.Model):
     discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     label = models.CharField(choices=LABEL_CHOICES, max_length=1)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     description = models.TextField()
     image  = models.FileField(storage=PublicMediaStorage())
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            slug = slugify(self.title)
+            while True:
+                try:
+                    item = Item.objects.get(slug=slug)
+                    if item == self:
+                        self.slug = slug
+                        break
+                    else:
+                        slug = slug + '-'
+                except:
+                    self.slug = slug
+                    break
+        return super(Item, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("core:product-detail", kwargs={
