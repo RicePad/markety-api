@@ -1,11 +1,34 @@
 from django import forms
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
+from .models import Item
 
 PAYMENT_CHOICES = (
     ('S', 'STRIPE'),
     ('P', 'PAYPAL')
 )
+
+CATEGORY_CHOICES = (
+    ('F', 'Fruits'),
+    ('V', 'Vegetables'),
+    ('D', 'Dairy')
+
+)
+
+LABEL_CHOICES = (
+    ('P', 'primary'),
+    ('S', 'secondary'),
+    ('D', 'danger')
+
+)
+
+
+class ItemCreateForm(forms.Form):
+    category = forms.ChoiceField(choices=CATEGORY_CHOICES, required=True)
+    location = forms.ChoiceField(choices=LABEL_CHOICES, required=True)
+
+    class Meta:
+        model = Item
 
 class CheckoutForm(forms.Form):
     shipping_address = forms.CharField(required=False)
