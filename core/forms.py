@@ -23,12 +23,19 @@ LABEL_CHOICES = (
 )
 
 
-class ItemCreateForm(forms.Form):
-    category = forms.ChoiceField(choices=CATEGORY_CHOICES, required=True)
-    location = forms.ChoiceField(choices=LABEL_CHOICES, required=True)
-
+class ItemCreateForm(forms.ModelForm):
     class Meta:
         model = Item
+        fields = ['title', 'price', 'discount_price', 'category', 'label', 'description', 'image']
+        widget = {
+            'title': forms.TextInput(),
+            'price': forms.IntegerField(),
+            'discount_price': forms.IntegerField(),
+            'category': forms.Select(choices=CATEGORY_CHOICES),
+            'label': forms.Select(choices=LABEL_CHOICES),
+            'description': forms.TextArea(),
+            'image': forms.ImageField()
+            }
 
 class CheckoutForm(forms.Form):
     shipping_address = forms.CharField(required=False)

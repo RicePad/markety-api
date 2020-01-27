@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import CheckoutForm, PaymentForm
+from .forms import CheckoutForm, PaymentForm, ItemCreateForm
 
 import random
 import string
@@ -31,8 +31,10 @@ class HomeViewList(ListView):
 
 class ItemCreateView(CreateView):
     model = Item
-    fields = ('title', 'price', 'discount_price', 'category', 'label', 'description', 'image')
+    form_class = ItemCreateForm
     template_name = "item_create_form.html"
+    success_url = "/"
+
 
 class ItemDetailView(DetailView):
     model = Item
