@@ -28,12 +28,12 @@ class ItemCreateForm(forms.ModelForm):
         model = Item
         fields = ['title', 'price', 'discount_price', 'category', 'label', 'description', 'image']
         widget = {
-            'title': forms.TextInput(),
+            'title': forms.CharField(),
             'price': forms.IntegerField(),
             'discount_price': forms.IntegerField(),
             'category': forms.Select(choices=CATEGORY_CHOICES),
             'label': forms.Select(choices=LABEL_CHOICES),
-            'description': forms.TextArea(),
+            'description': forms.TextInput(),
             'image': forms.ImageField()
             }
 
