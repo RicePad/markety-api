@@ -36,13 +36,13 @@
 
         <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
-          {% if request.user.is_authenticated %}
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'core:item-new' %}">
               <span class="clearfix d-none d-sm-inline-block"> Add Item </span>
               <i class="fas fa-plus-square"></i>
             </a>
           </li>
+          {% if request.user.is_authenticated %}
           <li class="nav-item">
             <a href="{% url 'core:order-summary' %}" class="nav-link waves-effect">
               <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
