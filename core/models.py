@@ -43,7 +43,7 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField(unique=True)
     description = models.TextField()
-    image  = models.FileField(storage=PublicMediaStorage())
+    image  = models.ImageField(storage=PublicMediaStorage())
 
     def __str__(self):
         return self.title

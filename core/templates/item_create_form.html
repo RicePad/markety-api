@@ -3,14 +3,10 @@
 
 {% block content %}
 
-{% comment %} <form action="{% url 'core:item-new'%}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save" />
- </form> {% endcomment %}
-   
-    START BREADCRUMB AREA
-=================================-->
+
+<!--================================
+      START BREADCRUMB AREA
+=================================--> 
 <section class="breadcrumb-area">
     <div class="container">
         <div class="row">
@@ -63,9 +59,9 @@
                 <div class="row">
                     <div class="col-lg-12 col-sm-12">
                         <form action="{% url 'core:item-new'%}" method="POST" enctype="multipart/form-data">
-                            {{ form }}
-
                             {% csrf_token %}
+
+
                             <div class="upload_modules">
                                 <div class="modules__title">
                                     <h4>Item Name & Description</h4>
@@ -77,22 +73,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group" >
                                                 <label for="product_name">Product Name</label>
-                                                <input type="text" id="product_name" class="text_field"
-                                                    placeholder="Enter your product title">
+                                                    {{ form.title }}
+
                                             </div>
                                         </div><!-- ends:.col-md-6 -->
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="category">Select Category</label>
                                                 <div class="select-wrap select-wrap2">
-                                                    <select name="country" id="category" class="text_field">
-                                                        <option value="wordpress">Wordpress</option>
-                                                        <option value="html">Html</option>
-                                                        <option value="graphic">Graphics</option>
-                                                        <option value="illustration">Illustration</option>
-                                                        <option value="music">Music</option>
-                                                        <option value="video">Video</option>
-                                                    </select>
+                                                    {{ form.category }}
                                                     <span class="lnr icon-arrow-down"></span>
                                                 </div>
                                             </div>
@@ -101,7 +90,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group" >
                                                 <label for="product_name">Description</label>
-                                            <textarea name="tags" id="tags" class="text_field" placeholder="Enter a brief description of the product..."></textarea>
+                                                    {{ form.description }}
                                             </div>
                                         </div>
                                         <!-- ends:.col-md-6 -->
@@ -109,14 +98,7 @@
                                             <div class="form-group">
                                                 <label for="category">Select a label</label>
                                                 <div class="select-wrap select-wrap2">
-                                                    <select name="country" id="category" class="text_field">
-                                                        <option value="wordpress">Wordpress</option>
-                                                        <option value="html">Html</option>
-                                                        <option value="graphic">Graphics</option>
-                                                        <option value="illustration">Illustration</option>
-                                                        <option value="music">Music</option>
-                                                        <option value="video">Video</option>
-                                                    </select>
+                                                        {{ form.label }}
                                                     <span class="lnr icon-arrow-down"></span>
                                                 </div>
                                             </div>
@@ -140,7 +122,7 @@
                                                 <label for="rlicense">Regular Price</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" id="rlicense" class="text_field" placeholder="10">
+                                                    {{ form.price }}
                                                 </div>
                                             </div>
                                         </div><!-- end /.col-md-6 -->
@@ -150,7 +132,7 @@
                                                 <label for="exlicense">Discount Price</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">$</span>
-                                                    <input type="text" id="exlicense" class="text_field" placeholder="5">
+                                                    {{ form.discount_price }}
                                                 </div>
                                             </div>
                                         </div><!-- end /.col-md-6 -->
@@ -172,18 +154,10 @@
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group">
                                                 <div class="upload_wrapper">
-                                                    <div class="upload-field">
-                                                        <div class="custom_upload">
-                                                            <label for="thumbnail">
-                                                                <input type="file" id="thumbnail" class="files">
-                                                                <span class="btn btn-primary btn--md"><i
-                                                                        class="icon-cloud-upload"></i>Upload File</span>
-                                                            </label>
-                                                        </div> <!-- end /.custom_upload -->
+                                                        {{ form.image }}
                                                         <p>Upload Thumbnail
                                                             <span>(JPEG or PNG 100x100px)</span>
                                                         </p>
-                                                    </div>
                                                 </div><!-- ends:.upload_wrapper -->
                                             </div><!-- ends: .form-group -->
                                         </div><!-- ends:.col-md-6 -->
@@ -215,7 +189,8 @@
                             <div class="btns m-top-40">
                                 <button type="submit" class="btn btn-lg btn-primary m-right-15">Submit item to your menu
                                 </button>
-                                <button type="submit" class="btn btn-lg btn-danger">Cancel</button>
+                                <a href="{% url 'core:home' %}" class="btn btn-lg btn-danger">Cancel</a>
+
                             </div>
                         </form>
                     </div>

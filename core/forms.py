@@ -26,16 +26,16 @@ LABEL_CHOICES = (
 class ItemCreateForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['title', 'price', 'discount_price', 'category', 'label', 'description', 'image']
-        widget = {
-            'title': forms.CharField(),
-            'price': forms.IntegerField(),
-            'discount_price': forms.IntegerField(),
-            'category': forms.Select(choices=CATEGORY_CHOICES),
-            'label': forms.Select(choices=LABEL_CHOICES),
-            'description': forms.TextInput(),
-            'image': forms.ImageField()
-            }
+        fields = ('title', 'price', 'discount_price', 'category', 'label', 'description', 'image')
+        # widgets = {
+        #     'title': forms.TextInput(attrs={'placeholder': 'Enter your product title'}),
+        #     'price': forms.FloatField(),
+        #     'discount_price': forms.FloatField(),
+        #     'category': forms.Select(choices=CATEGORY_CHOICES),
+        #     'label': forms.Select(choices=LABEL_CHOICES),
+        #     'description': forms.TextInput(),
+        #     'image': forms.ImageField()
+        #     }
 
 class CheckoutForm(forms.Form):
     shipping_address = forms.CharField(required=False)
