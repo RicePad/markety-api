@@ -8,3 +8,9 @@ from marketyproject.settings.base import *
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'elasticsearch:9200'
+    },
+}

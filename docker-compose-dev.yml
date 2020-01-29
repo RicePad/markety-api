@@ -30,6 +30,10 @@ services:
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data/
+ elasticsearch:
+    image: elasticsearch
+    volumes:
+      - data:/usr/share/elasticsearch/data
 
 volumes:
   pgdata:

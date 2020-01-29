@@ -12,3 +12,8 @@ django_compressor==2.2
 django-libsass
 boto3
 django-storages
+elasticsearch-dsl==6.0
+django-elasticsearch-dsl==0.5.0
+django-elasticsearch-dsl-drf==0.11
+
+
