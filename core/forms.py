@@ -22,6 +22,9 @@ LABEL_CHOICES = (
 
 )
 
+class CustomSearch(forms.Form):
+    q = forms.CharField(label='Search Query')
+
 
 class ItemCreateForm(forms.ModelForm):
     class Meta:

@@ -1,0 +1,11 @@
+<h2>Search</h2>
+<form>
+  {{ form.as_p }}
+  <br/>
+  <input type="submit" value="Search">
+</form>
+<ul>
+  {% for result in page.object_list %}
+    <li>{{ result.object }}</li>
+  {% endfor %}
+</ul>

@@ -7,7 +7,13 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import CheckoutForm, PaymentForm, ItemCreateForm
+from .forms import CheckoutForm, PaymentForm, ItemCreateForm, CustomSearch
+from haystack.inputs import AutoQuery
+from haystack.query import SearchQuerySet
+from .forms import CustomSearch
+from django.core.paginator import Paginator
+
+
 
 import random
 import string
@@ -16,6 +22,18 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # Create your views here.
+def custom_search(request):
+    form = CustomSearch(request.GET)
+
+    context = {}
+    if form.is_valid():
+        page_number = request.GET.get('page')
+        results = SearchQuerySet().filter(content=AutoQuery(form.cleaned_data['q']))
+        context['page'] = Paginator(results, settings.HAYSTACK_SEARCH_RESULTS_PER_PAGE).get_page(page_number)
+
+    context['form'] = form
+
+    return render(request, 'search/', context)
 
 class HomeView(ListView):
     model = Item

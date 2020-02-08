@@ -29,9 +29,11 @@ router.register('order-items', OrderItemAPIViewSet)
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('core.urls', namespace='core')),
+    path('search/', include('haystack.urls')),
     path('api/v1/', include(router.urls)),
     path('api/auth', include('djoser.urls.authtoken')),
 

@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'djoser',
     'compressor',
     'storages',
+    'haystack',
 
 
 
@@ -272,3 +273,16 @@ else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#ElasticSearch functionality
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+        'URL': 'http://elasticsearch:9200/',
+        'INDEX_NAME': 'haystack',
+    },
+}
+
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 1
+
+# Update Search index in realtime (using models.db.signals)
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
