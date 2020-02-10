@@ -7,10 +7,6 @@ class ItemIndex(indexes.SearchIndex, indexes.Indexable):
     title = indexes.CharField()
     price = indexes.FloatField()
 
-
-
-    
-
     def get_model(self):
         return Item
     

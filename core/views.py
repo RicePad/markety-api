@@ -64,6 +64,10 @@ class ItemDetailView(DetailView):
     context_object_name = "item_detail"
     template_name = "product_detail.html"
 
+class ItemResultView(DetailView):
+    model = Item
+    template_name = "core/results.html"
+
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
         try:

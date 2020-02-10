@@ -1,0 +1,4 @@
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/site-packages (2.4.1)
+Requirement already satisfied: urllib3<2.0,>=1.8 in /usr/local/lib/python3.7/site-packages (from elasticsearch) (1.24.2)
+[33mWARNING: You are using pip version 20.0.1; however, version 20.0.2 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.[0m
