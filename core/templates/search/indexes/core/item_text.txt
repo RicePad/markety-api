@@ -1,2 +1,4 @@
 {{ object.item_text }}
 {{ object.title }}
+{{ object.price }}
+

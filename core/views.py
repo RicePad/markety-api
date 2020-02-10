@@ -12,6 +12,8 @@ from haystack.inputs import AutoQuery
 from haystack.query import SearchQuerySet
 from .forms import CustomSearch
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect, JsonResponse
+
 
 
 
@@ -22,18 +24,18 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # Create your views here.
-def custom_search(request):
-    form = CustomSearch(request.GET)
+def autocomplete(request):
+    max_items = 5
+    q = request.GET.get('q')
+    if q:
+        sqs = SearchQuerySet().autocomplete(text_auto=q)
+        results = [str(result.object) for result in sqs[:max_items]]
+    else:
+        results = []
 
-    context = {}
-    if form.is_valid():
-        page_number = request.GET.get('page')
-        results = SearchQuerySet().filter(content=AutoQuery(form.cleaned_data['q']))
-        context['page'] = Paginator(results, settings.HAYSTACK_SEARCH_RESULTS_PER_PAGE).get_page(page_number)
-
-    context['form'] = form
-
-    return render(request, 'search/', context)
+    return JsonResponse({
+        'results': results
+    })
 
 class HomeView(ListView):
     model = Item

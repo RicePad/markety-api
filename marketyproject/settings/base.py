@@ -283,3 +283,5 @@ HAYSTACK_CONNECTIONS = {
 }
 
 
+# Update Search index in realtime (using models.db.signals)
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

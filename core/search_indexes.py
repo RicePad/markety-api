@@ -6,7 +6,11 @@ class ItemIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField()
     price = indexes.FloatField()
+    
+    # We add this for autocomplete.
+    text_auto = indexes.EdgeNgramField(model_attr='title')
 
+    
     def get_model(self):
         return Item
     

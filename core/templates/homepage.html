@@ -30,9 +30,9 @@
                                     <div class="col-lg-8 offset-lg-2">
                                         <!-- start .search_box -->
                                         <div class="search_box2">
-                                            <form action="#">
-                                                <input type="text" class="text_field" placeholder="Search your products...">
-                                                <button type="submit" class="search-btn btn--lg btn-primary">Search Now</button>
+                                            <form action="{% url 'haystack_search' %}" class="autocomplete" >
+                                                <input id="q" name="q" type="text" autocomplete="off" class="text_field" placeholder="Search your products...">
+                                                <input type="submit" value="Search!" class="search-btn btn--lg btn-primary">
                                             </form>
                                         </div>
                                         <!-- end ./search_box -->
@@ -453,7 +453,15 @@
         End How It Works
     =================================-->
     
-
+<script type="text/javascript">
+    $(function () {
+        window.autocomplete = new Autocomplete({
+        form_selector: '.autocomplete',
+        url: '{% url 'core:autocomplete' %}'
+        });
+        window.autocomplete.setup()
+    });
+</script>
     
 
 {% endblock content %}

@@ -11,6 +11,7 @@ from .views import (
     HomeViewList,
     ItemCreateView,
     ItemResultView,
+    autocomplete
     )
 
 
@@ -19,6 +20,7 @@ app_name = 'core'
 urlpatterns = [
     path('', HomeViewList.as_view(), name="home"),
     path('<int:pk>/results/', ItemResultView.as_view(), name="results"),
+    path('autocomplete/', autocomplete, name='autocomplete'),
     path('item/new/', ItemCreateView.as_view(), name="item-new"),
     path('order-summary', OrderSummaryView.as_view(), name="order-summary"),
     path('product/<int:pk>/', ItemDetailView.as_view(), name="product-detail"),
