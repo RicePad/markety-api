@@ -1,27 +1,56 @@
+{% extends 'base.html' %}
+
 {% block content %}
-    <h2>Search Result Design</h2>
+{% if query %}
 
-    
+  <div class="p-bottom-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="shortcode_module_title">
+                        <div class="dashboard__title">
+                            <h3>Search Results</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        {% if query %}
-            <h3>Results</h3>
+            <div class="row">
+                {% for result in page.object_list %}
 
-            {% for result in page.object_list %}
-                <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-                </p>
-            {% empty %}
+                <div class="col-lg-6 col-sm-12">
+                    <div class="card_style2">
+                        <div class="save_job">
+                            <span class="icon-heart" title="Save Job" data-toggle="tooltip"></span>
+                        </div>
+                        <h4 class="card_style2__title"><a href="{{ result.object.get_absolute_url}}">{{ result.object.title }}</a></h4>
+                        <div class="card_style2__location_type">
+                            <p>
+                                <span class="icon-location-pin"></span>London
+                            </p>
+                            <p>
+                                <span class="icon-wallet"></span>$30k - $35k
+                            </p>
+                            <span class="type primarybg">Full Time</span>
+                        </div>
+                        <a href="job-detail.html">Learn More and Apply
+                            <span class="icon-arrow-right-circle"></span>
+                        </a>
+                    </div>
+                    <!-- end /.single_job -->
+                </div>
+                <!-- end /.col-md-6 -->
+                 {% empty %}
                 <p>No results found.</p>
             {% endfor %}
+            </div>
+            
 
-            {% if page.has_previous or page.has_next %}
-                <div>
-                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                    |
-                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                </div>
-            {% endif %}
-        {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
-        {% endif %}
+        </div>
+    </div>
+
+    {% endif %}
+    
+
+    
 {% endblock %}
