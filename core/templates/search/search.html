@@ -1,6 +1,8 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
+
 {% if query %}
 
   <div class="p-bottom-70">
@@ -9,7 +11,6 @@
                 <div class="col-md-12">
                     <div class="shortcode_module_title">
                         <div class="dashboard__title">
-                            <h3>Search Results</h3>
                         </div>
                     </div>
                 </div>
@@ -18,31 +19,65 @@
             <div class="row">
                 {% for result in page.object_list %}
 
-                <div class="col-lg-6 col-sm-12">
-                    <div class="card_style2">
-                        <div class="save_job">
-                            <span class="icon-heart" title="Save Job" data-toggle="tooltip"></span>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card_style2">
+                            <div class="save_job">
+                                <span class="fas fa-heart text-danger" title="Save Item" data-toggle="tooltip"></span>
+                            </div>
+                            <h4 class="card_style2__title"><a href="{{ result.object.get_absolute_url}}">{{ result.object.title }}</a></h4>
+                            <div class="card_style2__location_type">
+                                <p>
+                                    <span class="fas fa-wallet"></span> ${{ result.object.price }}
+                                </p>
+                                <p>
+                                    <span class="fas fa-tag"></span>{{ result.object.discount_price}}
+                                </p>
+                                <span class="type primarybg">{{ result.object.category }}</span>
+                            </div>
+                            <a href="{{ item.get_absolute_url }}"> Read More
+                                <span class="fas fa-arrow-circle-right"></span>
+                            </a>
                         </div>
-                        <h4 class="card_style2__title"><a href="{{ result.object.get_absolute_url}}">{{ result.object.title }}</a></h4>
-                        <div class="card_style2__location_type">
-                            <p>
-                                <span class="icon-location-pin"></span>London
-                            </p>
-                            <p>
-                                <span class="icon-wallet"></span>$30k - $35k
-                            </p>
-                            <span class="type primarybg">Full Time</span>
-                        </div>
-                        <a href="job-detail.html">Learn More and Apply
-                            <span class="icon-arrow-right-circle"></span>
-                        </a>
+                        <!-- end /.single_job -->
                     </div>
-                    <!-- end /.single_job -->
-                </div>
-                <!-- end /.col-md-6 -->
-                 {% empty %}
-                <p>No results found.</p>
-            {% endfor %}
+                    <!-- end /.col-md-6 -->
+                    {% empty %}
+                   
+                       <div id="background"></div>
+<div class="top">
+  <h1>Results not found</h1>
+</div>
+<div class="container">
+  <div class="ghost-copy">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+  </div>
+  <div class="ghost">
+    <div class="face">
+      <div class="eye"></div>
+      <div class="eye-right"></div>
+      <div class="mouth"></div>
+    </div>
+  </div>
+  <div class="shadow"></div>
+</div>
+<div class="bottom">
+  <form class="search">
+    <input type="text" class="search-bar" placeholder="Search">
+    <button type="submit" class="search-btn">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+  <div class="buttons">
+    <button class="btn">Back</button>
+    <button class="btn">Home</button>
+  </div>
+</div>
+
+
+                {% endfor %}
             </div>
             
 
