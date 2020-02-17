@@ -10,15 +10,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 breadcrumb-contents">
-                <h2 class="page-title">DigiPro Multipurpose Marketplace HTML Template</h2>
+                <h2 class="page-title">{{ item_detail.title }}</h2>
                 <div class="breadcrumb">
                     <ul>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="{% url 'core:home' %}">Home</a>
                         </li>
-                        <li class="active">
-                            <a href="#">Corporate & Business</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>

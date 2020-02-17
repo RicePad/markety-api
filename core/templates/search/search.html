@@ -1,4 +1,6 @@
 
+
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -43,39 +45,33 @@
                     <!-- end /.col-md-6 -->
                     {% empty %}
                    
-                       <div id="background"></div>
-<div class="top">
-  <h1>Results not found</h1>
-</div>
-<div class="container">
-  <div class="ghost-copy">
-    <div class="one"></div>
-    <div class="two"></div>
-    <div class="three"></div>
-    <div class="four"></div>
-  </div>
-  <div class="ghost">
-    <div class="face">
-      <div class="eye"></div>
-      <div class="eye-right"></div>
-      <div class="mouth"></div>
-    </div>
-  </div>
-  <div class="shadow"></div>
-</div>
-<div class="bottom">
-  <form class="search">
-    <input type="text" class="search-bar" placeholder="Search">
-    <button type="submit" class="search-btn">
-      <i class="fas fa-search"></i>
-    </button>
-  </form>
-  <div class="buttons">
-    <button class="btn">Back</button>
-    <button class="btn">Home</button>
-  </div>
-</div>
-
+                    <!--================================
+                            START 404 AREA
+                    =================================-->
+                   
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-3 text-center">
+                                    <img src="https://markety-storage.s3.us-east-1.amazonaws.com/images-upload/404.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEA0aCXVzLWVhc3QtMSJHMEUCIDxUVNGZZB6d0CEs4RzMElHKEzDxbEiIsBP2C8LJusMDAiEAh%2BnuvTAU%2FgPgujxmCIjaD0USV4UC%2B7umzrGh13CoAEkqggIIxf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwwNDY4MjA4NTI4MjciDHonfUMkEIJtj%2FNTfirWAZ0HJTSBCcN9Pz88Ro36TtnNCWapUsPK89R862T6y8FmauZcXHDBklw8mCYBpqJ0ZeK49T7%2B%2BKh%2FdR%2BUYnDm77p%2FdHUoD3oxnsaB1UGZDW5YDb0VENwBABigQIhmbVgZ8tGw711lRNNn%2BTOeECSJqbOFnmZxfv8XFKIciM5vAKhT7lTMcF6yPINDnDv4%2F2ASGKrAMqfCh2k9reyzla%2FwSCi5stLMU16eapahbvNxezBznlUWZTRd1uXC9nZEcK0Ee%2FpV%2BRe9fEB6j2HOl018K3jJYqL8rJwwoOqr8gU69gL9fNKMugV0InLn4Fl5IDzMJdr0%2F3jFGgK6DTEmNpVNZA5hbXoGcB2mz3iRDVEJqqLsMzmWwk3OS10pJLMUcXphlsDl8wzqo2O1QfllFcw9uYlFCZ2a4RFV04IycklEDDuOr9j3Vcm3DnEL%2FTiwIxcCmSVoJ6q%2Fcy%2FDriQbGUAGcDNIUr4uBHnSRAo5ksH2yFIx%2FpY%2B%2B9SZPEZy5m6yTujxcDn9Ya8EiGPlQ1Z6plpDDcbVa8fxn9KVUJkt3jZ7c4CiIb3%2BUQOnGqWwkwIrqRulBNDQskTwv1bR1mxKik47j6qzgJ9yz%2BPwlZE0mlzqFejJeZ%2Bksw1Bhxg7f8MMiMCETSj3BhwAEJPSgz%2FeSX758AbpDPnoH3Dl8nG%2BJCC9DkF1S0NMrR171qQumS0g74NvM2gsFV2RzG4gPeTsR9aMhNuBVnZx5TwnpJx%2FKsD3gbWgD6W9BQFD54yL87rQuqP3ph4qJeOxdriAzzc7ATi5xcZmF303wg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200217T202628Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQVZV5QRNZY53DVBU%2F20200217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b630051b5f35e55d9be896a9c97138700b882d1dc6b0ad4e85973be77a7d7eb8" alt="404 page">
+                                    <div class="not_found">
+                                        <h2>Oops! Results Not Found</h2>
+                                        <a href="{% url 'core:home' %}" class="btn btn--md btn-primary">Back to Home</a>
+                                    </div>
+                                    <div class="not_found">
+                                        <h2>or Search Again</h2>
+                                        <div class="search_box2">
+                                            <form action="{% url 'haystack_search' %}" class="autocomplete" >
+                                                <input id="q" name="q" type="text" autocomplete="off" class="text_field" placeholder="Search your products...">
+                                                <input type="submit" value="Search!" class="search-btn btn--lg btn-primary">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!--================================
+                                END 404 AREA
+                    =================================-->
 
                 {% endfor %}
             </div>
@@ -87,5 +83,13 @@
     {% endif %}
     
 
-    
-{% endblock %}
+<script type="text/javascript">
+$(function () {
+    window.autocomplete = new Autocomplete({
+    form_selector: '.autocomplete',
+    url: '{% url 'core:autocomplete' %}'
+    });
+    window.autocomplete.setup()
+});
+</script>
+{% endblock content %}
