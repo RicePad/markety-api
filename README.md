@@ -4,7 +4,7 @@
 # Example Application
 
 we prepared a marketplace system, which allows creating aswell as editing products.
-Each ticket can be commented on by users.
+Each product can be commented on by users.
 
 This example application makes use of Foreign Keys, Many-To-Many Fields, template tags, middlewares, views, etc... - a typical Django app.
 
