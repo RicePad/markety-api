@@ -1,0 +1,40 @@
+{
+  "name": "markeyproject",
+  "version": "1.0.0",
+  "description": "an online catering marketplace that allows individuals to order food from local caterers. Tech stack includes Python-Django RESTfulAPI as the backend, React for the frontend development and Docker Containers for production deployment using Digital Ocean servers.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w webpack.config.js -x webpack-dev-server",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RicePad/markety-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RicePad/markety-api/issues"
+  },
+  "homepage": "https://github.com/RicePad/markety-api#readme",
+  "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "gulp": "^3.9.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "devDependencies": {
+    "i": "^0.3.6",
+    "nodemon": "^1.18.10",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

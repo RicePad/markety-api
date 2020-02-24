@@ -32,6 +32,13 @@ services:
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data/
+  react-client:
+    build:
+      context: .
+      dockerfile: docker/development/javascript/Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
   
   elasticsearch:
     image: launcher.gcr.io/google/elasticsearch2
@@ -40,6 +47,7 @@ services:
       - "9300:9300"
     volumes:
           - esdata:/usr/share/elasticsearch/data
+  
       
 
 volumes:
