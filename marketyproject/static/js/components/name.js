@@ -1,9 +1,11 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
+
 
 class Name extends React.Component{
     render(){
-        return<div>This is a reactadsa </div>
+        return<div>Thisssss issss a rrrreact compon</div>
     }
 }
 
-export default Name;
+export default hot(module)(Name);
