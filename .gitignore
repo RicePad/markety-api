@@ -10,6 +10,6 @@ db.sqlite3
 /marketyproject/.env
 /marketyproject/debug.log
 /node_modules
-
+/marketyproject/static/node_modules
 
 
