@@ -169,8 +169,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-# STATIC_URL = '/static/'
-STATIC_URL = 'http://127.0.0.1:8080/'
+STATIC_URL = '/static/'
+# STATIC_URL = 'http://127.0.0.1:8080/'
 
 STATIC_ROOT = '/static_files/'
 STATICFILES_DIRS = (
