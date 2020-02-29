@@ -28635,6 +28635,27 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/Person/Person.js":
+/*!******************************!*\
+  !*** ./src/Person/Person.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const person = () => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I'm a person");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (person);
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -28667,11 +28688,13 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Person_Person__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Person/Person */ "./src/Person/Person.js");
+
 
 
 class Name extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "I finally added a react component");
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a React Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], null));
   }
 
 }

@@ -37,6 +37,10 @@ def autocomplete(request):
         'results': results
     })
 
+
+class ReactView(TemplateView):
+    template_name = "react_component.html"
+
 class HomeView(ListView):
     model = Item
     context_object_name = "item_list"

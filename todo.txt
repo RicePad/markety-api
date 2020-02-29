@@ -1,0 +1,5 @@
+- create a functional component
+- create a class based component
+- pass properties
+- pass children
+- set state properties
