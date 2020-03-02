@@ -1,5 +1,4 @@
-- create a functional component
-- create a class based component
-- pass properties
-- pass children
-- set state properties
+- Create a click event handler to print name
+- update the state of component when click button
+- Apply binding method to change properties dynamically
+- Create a onChange event method to update name state dynamically

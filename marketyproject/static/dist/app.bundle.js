@@ -28698,16 +28698,48 @@ function (_React$Component) {
       }]
     });
 
+    _defineProperty(_assertThisInitialized(_this), "switchNameHandler", function (newName) {
+      _this.setState({
+        persons: [{
+          name: newName
+        }, {
+          name: 'Dave'
+        }, {
+          name: 'Luis'
+        }],
+        otherState: 'some other value'
+      });
+
+      console.log(_this.state);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "nameChangeHandler", function (event) {
+      _this.setState({
+        persons: [{
+          name: 'Jonathan'
+        }, {
+          name: event.target.value
+        }, {
+          name: 'Luis'
+        }],
+        otherState: 'some other value'
+      });
+    });
+
     return _this;
   }
 
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a Reacts Componesnt"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a Reacts Componesnt"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.switchNameHandler.bind(this, 'Maximilian')
+      }, " Switch Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
         name: this.state.persons[0].name
-      }, " and I like skateboarding "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        name: this.state.persons[1].name
+      }, " and I like skateboarding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        click: this.switchNameHandler.bind(this, 'Max'),
+        name: this.state.persons[1].name,
+        change: this.nameChangeHandler
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
         name: this.state.persons[2].name
       }));
@@ -28735,7 +28767,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var person = function person(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I'm a person and my name is ", props.name, "  ", props.children);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    onClick: props.click
+  }, " I'm a persson and my name is ", props.name, "  ", props.children, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.change,
+    value: props.name
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (person);
