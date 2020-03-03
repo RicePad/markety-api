@@ -28640,9 +28640,144 @@ if (false) {} else {
   !*** ./src/App.js ***!
   \********************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/Jonathann/Desktop/test_app/markety/marketyproject/static/src/App.js: Support for the experimental syntax 'classProperties' isn't currently enabled (6:11):\n\n\u001b[0m \u001b[90m 4 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 | \u001b[39m\u001b[36mclass\u001b[39m \u001b[33mApp\u001b[39m \u001b[36mextends\u001b[39m \u001b[33mReact\u001b[39m\u001b[33m.\u001b[39m\u001b[33mComponent\u001b[39m{\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 6 | \u001b[39m    state \u001b[33m=\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m   | \u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 | \u001b[39m        persons\u001b[33m:\u001b[39m [\u001b[0m\n\u001b[0m \u001b[90m 8 | \u001b[39m            {name\u001b[33m:\u001b[39m \u001b[32m'Jonathan'\u001b[39m}\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 9 | \u001b[39m            {name\u001b[33m:\u001b[39m \u001b[32m'Dave'\u001b[39m}\u001b[33m,\u001b[39m\u001b[0m\n\nAdd @babel/plugin-proposal-class-properties (https://git.io/vb4SL) to the 'plugins' section of your Babel config to enable transformation.\n    at Object.raise (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:7017:17)\n    at Object.expectPlugin (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:8400:18)\n    at Object.parseClassProperty (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11695:12)\n    at Object.pushClassProperty (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11657:30)\n    at Object.parseClassMemberWithIsStatic (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11590:14)\n    at Object.parseClassMember (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11527:10)\n    at /Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11482:14\n    at Object.withTopicForbiddingContext (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:10565:14)\n    at Object.parseClassBody (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11459:10)\n    at Object.parseClass (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11433:22)\n    at Object.parseStatementContent (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:10732:21)\n    at Object.parseStatement (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:10690:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11264:25)\n    at Object.parseBlockBody (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:11251:10)\n    at Object.parseTopLevel (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:10621:10)\n    at Object.parse (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:12222:10)\n    at parse (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/parser/lib/index.js:12273:38)\n    at parser (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/gensync/index.js:254:32)\n    at /Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/Users/Jonathann/Desktop/test_app/markety/marketyproject/static/node_modules/gensync/index.js:216:11)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Person_Person__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Person/Person */ "./src/Person/Person.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var App =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      persons: [{
+        name: 'Jonathan'
+      }, {
+        name: 'Dave'
+      }, {
+        name: 'Luis'
+      }]
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "switchNameHandler", function (newName) {
+      _this.setState({
+        persons: [{
+          name: newName
+        }, {
+          name: 'Dave'
+        }, {
+          name: 'Luis'
+        }],
+        otherState: 'some other value'
+      });
+
+      console.log(_this.state);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "nameChangeHandler", function (event) {
+      _this.setState({
+        persons: [{
+          name: 'Jonathan'
+        }, {
+          name: event.target.value
+        }, {
+          name: 'Luis'
+        }],
+        otherState: 'some other value'
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a Reacts Componesnt"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.switchNameHandler.bind(this, 'Maximilian')
+      }, " Switch Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        name: this.state.persons[0].name
+      }, " and I like skateboarding"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        click: this.switchNameHandler.bind(this, 'Max'),
+        name: this.state.persons[1].name,
+        change: this.nameChangeHandler
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        name: this.state.persons[2].name
+      }));
+    }
+  }]);
+
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/Person/Person.js":
+/*!******************************!*\
+  !*** ./src/Person/Person.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var person = function person(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Person"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    onClick: props.click
+  }, " I'm a person and my name is ", props.name, "  ", props.children, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.change,
+    value: props.name
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (person);
 
 /***/ }),
 
@@ -28680,14 +28815,46 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-class Name extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a ResactsComponent dsdasadasdadsda"));
+
+var Name =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Name, _React$Component);
+
+  function Name() {
+    _classCallCheck(this, Name);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Name).apply(this, arguments));
   }
 
-}
+  _createClass(Name, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a ResactsComponent dsdasadasdadsda"));
+    }
+  }]);
+
+  return Name;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Name);
 
