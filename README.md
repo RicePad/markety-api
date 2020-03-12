@@ -1,5 +1,5 @@
 # markety-api
- an online catering marketplace that allows individuals to order food from local caterers. Tech stack includes Python-Django RESTfulAPI as the backend, React for the frontend development and Docker Containers for production deployment using Digital Ocean servers. 
+ an online catering marketplace that allows individuals to order food from local caterers. Tech stack includes Python-Django RESTfulAPI as the backend, React for the frontend development, Elasticsearch for queries, and Docker Containers for production deployment using Digital Ocean servers. 
 
 # Example Application
 
