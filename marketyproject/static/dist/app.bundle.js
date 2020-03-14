@@ -28647,6 +28647,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Person_Person__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Person/Person */ "./src/Person/Person.js");
+/* harmony import */ var _UserInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserInput */ "./src/UserInput.js");
+/* harmony import */ var _UserOutput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserOutput */ "./src/UserOutput.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28666,6 +28668,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -28695,6 +28699,11 @@ function (_React$Component) {
         name: 'Dave'
       }, {
         name: 'Luis'
+      }],
+      usernames: [{
+        name: 'Jonathan'
+      }, {
+        name: 'Andrea'
       }]
     });
 
@@ -28726,6 +28735,23 @@ function (_React$Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "shiftNameHandler", function (newName) {
+      _this.setState({
+        persons: [{
+          name: 'Jonathan'
+        }, {
+          name: 'Dave'
+        }, {
+          name: 'Luis'
+        }],
+        usernames: [{
+          name: newName
+        }, {
+          name: 'Jonathan'
+        }]
+      });
+    });
+
     return _this;
   }
 
@@ -28742,6 +28768,12 @@ function (_React$Component) {
         change: this.nameChangeHandler
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Person_Person__WEBPACK_IMPORTED_MODULE_1__["default"], {
         name: this.state.persons[2].name
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserOutput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        username: this.state.usernames[0].name,
+        click: this.shiftNameHandler.bind(this, 'Andrea')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserInput__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserOutput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        username: this.state.usernames[1].name,
+        click: this.shiftNameHandler.bind(this, 'Dave')
       }));
     }
   }]);
@@ -28778,6 +28810,50 @@ var person = function person(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (person);
+
+/***/ }),
+
+/***/ "./src/UserInput.js":
+/*!**************************!*\
+  !*** ./src/UserInput.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var userInput = function userInput() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (userInput);
+
+/***/ }),
+
+/***/ "./src/UserOutput.js":
+/*!***************************!*\
+  !*** ./src/UserOutput.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var userOutput = function userOutput(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    onClick: props.click
+  }, "This is an output component with username: ", props.username, " "));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (userOutput);
 
 /***/ }),
 
@@ -28849,7 +28925,7 @@ function (_React$Component) {
   _createClass(Name, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a ResactsComponent dsdasadasdadsda"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a ResactsComponent"));
     }
   }]);
 

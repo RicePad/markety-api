@@ -1,5 +1,8 @@
 import React from 'react';
 import Person from './Person/Person';
+import UserInput from './UserInput';
+import UserOutput from './UserOutput';
+
 
 
 class App extends React.Component{
@@ -8,7 +11,10 @@ class App extends React.Component{
             {name: 'Jonathan'},
             {name: 'Dave'},
             {name: 'Luis'},
-
+        ],
+        usernames: [
+            {name: 'Jonathan'},
+            {name: 'Andrea'}
 
         ]
     }
@@ -37,6 +43,21 @@ class App extends React.Component{
         })
     }
 
+    shiftNameHandler = (newName) => {
+        this.setState({
+            persons: [
+                {name: 'Jonathan'},
+                {name: 'Dave'},
+                {name: 'Luis'},
+            ],
+            usernames: [
+                {name:  newName},
+                {name: 'Jonathan'}
+    
+            ]
+        })
+    }
+
     render(){
         return(
         <div>
@@ -54,6 +75,17 @@ class App extends React.Component{
                 name={this.state.persons[2].name}>
 
             </Person>
+            <UserOutput
+                username={this.state.usernames[0].name}
+                click={this.shiftNameHandler.bind(this, 'Andrea')}
+            >
+            </UserOutput>
+            <UserInput />
+            <UserOutput
+                username={this.state.usernames[1].name}
+                click={this.shiftNameHandler.bind(this, 'Dave')}
+            >
+            </UserOutput>
         </div>)
     }
 }
