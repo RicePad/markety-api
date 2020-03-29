@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Name from './name';
 import App from './App';
+import Primary from './Primary';
 
 
-ReactDOM.render(<App />, document.getElementById('name'));
+ReactDOM.render(<Primary />, document.getElementById('name'));

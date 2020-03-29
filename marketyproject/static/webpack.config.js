@@ -2,7 +2,8 @@ const path = require('path');
 module.exports = {
 	mode: 'development',
 	entry: {
-		app: './src/index.js'
+		app: './src/index.js',
+
 	},
 	watch: true,
 	devtool: 'source-map',
@@ -21,11 +22,17 @@ module.exports = {
 				}
             }
         ],
-		}]
+		},
+		{
+			test: /\.css$/,
+			use: ["style-loader", "css-loader"]
+		},
+	]
 	},
 	resolve: {
 		extensions: [
-			'.js'
+			'.js',
+			'.css',
 		]
 	}
 };
