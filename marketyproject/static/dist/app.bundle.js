@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Layout/Layout.css":
-/*!********************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Layout/Layout.css ***!
-  \********************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?!./src/components/Layout/Layout.module.css":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./src/components/Layout/Layout.module.css ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -97,8 +97,13 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".Content {\n    margin-top: 100px;\n}\n\n.MainColor {\n    background-color: blue;\n}", ""]);
+exports.push([module.i, "._1k7CPVNrQd94FXEKRNsPXr {\n    margin-top: 100px;\n}\n\n._3J6yBEJniDTmxMMAhTMZ02 {\n    width: 50px;\n    height: 20px;\n    border: 2px solid lightgray;\n\n}\n\n._3vn9BXHGMu-1zxXElXxuGg {\n    color: DodgerBlue;\n    padding: 40px;\n    font-family: Arial;\n    text-align: center;\n  }", ""]);
 // Exports
+exports.locals = {
+	"Content": "_1k7CPVNrQd94FXEKRNsPXr",
+	"Counter": "_3J6yBEJniDTmxMMAhTMZ02",
+	"bigblue": "_3vn9BXHGMu-1zxXElXxuGg"
+};
 module.exports = exports;
 
 
@@ -29316,15 +29321,41 @@ var userOutput = function userOutput(props) {
 
 /***/ }),
 
-/***/ "./src/components/Layout/Layout.css":
-/*!******************************************!*\
-  !*** ./src/components/Layout/Layout.css ***!
-  \******************************************/
+/***/ "./src/components/Layout/Layout.js":
+/*!*****************************************!*\
+  !*** ./src/components/Layout/Layout.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Layout_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.module.css */ "./src/components/Layout/Layout.module.css");
+/* harmony import */ var _Layout_module_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Layout_module_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var layout = function layout(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Toolbar, Sidedrawer, Backdropsss "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+    className: _Layout_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.Content
+  }, props.children));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (layout);
+
+/***/ }),
+
+/***/ "./src/components/Layout/Layout.module.css":
+/*!*************************************************!*\
+  !*** ./src/components/Layout/Layout.module.css ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!./Layout.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Layout/Layout.css");
+            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--5-1!./Layout.module.css */ "./node_modules/css-loader/dist/cjs.js?!./src/components/Layout/Layout.module.css");
 
             content = content.__esModule ? content.default : content;
 
@@ -29344,32 +29375,6 @@ var exported = content.locals ? content.locals : {};
 
 
 module.exports = exported;
-
-/***/ }),
-
-/***/ "./src/components/Layout/Layout.js":
-/*!*****************************************!*\
-  !*** ./src/components/Layout/Layout.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Layout_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.css */ "./src/components/Layout/Layout.css");
-/* harmony import */ var _Layout_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Layout_css__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-var layout = function layout(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Toolbar, Sidedrawer, Backdrop "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
-    className: _Layout_css__WEBPACK_IMPORTED_MODULE_1___default.a.MainColor
-  }, props.children));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (layout);
 
 /***/ }),
 

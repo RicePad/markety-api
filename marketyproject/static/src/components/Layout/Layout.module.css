@@ -1,0 +1,17 @@
+.Content {
+    margin-top: 100px;
+}
+
+.Counter {
+    width: 50px;
+    height: 20px;
+    border: 2px solid lightgray;
+
+}
+
+.bigblue {
+    color: DodgerBlue;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
