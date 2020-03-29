@@ -1,5 +1,4 @@
-import React from 'react';
-import Person from '../components/Persons/Person/Person';
+import React from './node_modules/react';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
