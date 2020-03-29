@@ -28799,9 +28799,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var person = function person(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Person"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     onClick: props.click
   }, " I'm a person and my name is ", props.name, "  ", props.children, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change,
