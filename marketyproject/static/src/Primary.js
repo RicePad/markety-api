@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Layout from './components/Layout/Layout'
+import Layout from './components/Layout/Layout';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+
 
 
 class Primary extends Component {
@@ -7,7 +9,7 @@ class Primary extends Component {
         return(
             <div>
                 <Layout>
-                    <p>test children aaapssaragrapadasdash</p>
+                    <BurgerBuilder />
                 </Layout>
             </div>
         )
