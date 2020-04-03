@@ -121,10 +121,12 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".oRJD7d0JvZqoYHyT-BjZt {\n    width: 100%;\n    background-color: #CF8F2E;\n    display: flex;\n    flex-flow: column;\n    align-items: center;\n    box-shadow: 0 2px 1px #ccc;\n    margin: auto;\n    padding: 10px 0;\n}", ""]);
+exports.push([module.i, ".oRJD7d0JvZqoYHyT-BjZt {\n    width: 100%;\n    background-color: #CF8F2E;\n    display: flex;\n    flex-flow: column;\n    align-items: center;\n    box-shadow: 0 2px 1px #ccc;\n    margin: auto;\n    padding: 10px 0;\n}\n\n._2e6gGIR5MshRCNp--wq7Fi {\n    background-color: #DAD735;\n    outline: none;\n    cursor: pointer;\n    border: 1px solid #966909;\n    color: #966909;\n    font-family: inherit;\n    font-size: 1.2em;\n    padding: 15px 30px;\n    box-shadow: 2px 2px 2px #966909;\n}\n\n._2e6gGIR5MshRCNp--wq7Fi:hover, ._2e6gGIR5MshRCNp--wq7Fi:active {\n    background-color: #A0DB41;\n    border: 1px solid #966909;\n    color: #966909;\n}\n\n._2e6gGIR5MshRCNp--wq7Fi:disabled {\n    background-color: #C7C6C6;\n    cursor: not-allowed;\n    border: 1px solid #ccc;\n    color: #888888;\n}\n\n._2e6gGIR5MshRCNp--wq7Fi:not(:disabled) {\n    animation: _3BHINqIzhKT1_TbT67XoX5 0.3s linear;\n}\n\n@keyframes _3BHINqIzhKT1_TbT67XoX5 {\n    0% {\n        transform: scale(1);\n    }\n    60% {\n        transform: scale(1.1);\n    }\n    100% {\n        transform: scale(1);\n    }\n}", ""]);
 // Exports
 exports.locals = {
-	"BuildControls": "oRJD7d0JvZqoYHyT-BjZt"
+	"BuildControls": "oRJD7d0JvZqoYHyT-BjZt",
+	"OrderButton": "_2e6gGIR5MshRCNp--wq7Fi",
+	"enable": "_3BHINqIzhKT1_TbT67XoX5"
 };
 module.exports = exports;
 
@@ -30278,7 +30280,9 @@ var buildControl = function buildControl(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: _BuildControl_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.Label
   }, props.label), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: _BuildControl_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.Less
+    className: _BuildControl_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.Less,
+    onClick: props.removed,
+    disabled: props.disabled
   }, "Less"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: _BuildControl_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.More,
     onClick: props.added
@@ -30356,13 +30360,18 @@ var controls = [{
 var buildControls = function buildControls(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: _BuildControls_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.BuildControls
-  }, controls.map(function (ctrl) {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Total Price: $ ", props.price.toFixed(2)), controls.map(function (ctrl) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_BuildControl_BuildControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: ctrl.label,
       label: ctrl.label,
-      added: props.ingredientAdded.bind(_this, ctrl.type)
+      added: props.ingredientAdded.bind(_this, ctrl.type),
+      removed: props.ingredientRemoved.bind(_this, ctrl.type),
+      disabled: props.disabled[ctrl.type]
     });
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: _BuildControls_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.OrderButton,
+    disabled: props.purchasable
+  }, "ORDER NOW"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (buildControls);
@@ -30759,12 +30768,12 @@ function (_Component) {
         'salad': 0,
         'bacon': 0
       },
-      totalPrice: 0
+      totalPrice: 0,
+      purchasable: false
     });
 
     _defineProperty(_assertThisInitialized(_this), "addIngredientHandler", function (type) {
       var oldCount = _this.state.ingredients[type];
-      console.log(oldCount);
       var updatedCount = oldCount + 1;
 
       var updatedIngredients = _objectSpread({}, _this.state.ingredients);
@@ -30778,20 +30787,66 @@ function (_Component) {
         totalPrice: newPrice,
         ingredients: updatedIngredients
       });
+
+      _this.updatePurchaseState(updatedIngredients);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "removeIngredientHandler", function (type) {});
+    _defineProperty(_assertThisInitialized(_this), "removeIngredientHandler", function (type) {
+      var oldCount = _this.state.ingredients[type];
+
+      if (oldCount <= 0) {
+        return;
+      }
+
+      var updatedCount = oldCount - 1;
+
+      var updatedIngredients = _objectSpread({}, _this.state.ingredients);
+
+      updatedIngredients[type] = updatedCount;
+      var priceDeduction = INGREDIENT_PRICES[type];
+      var oldPrice = _this.state.totalPrice;
+      var newPrice = oldPrice - priceDeduction;
+
+      _this.setState({
+        totalPrice: newPrice,
+        ingredients: updatedIngredients
+      });
+
+      _this.updatePurchaseState(updatedIngredients);
+    });
 
     return _this;
   }
 
   _createClass(BurgerBuilder, [{
+    key: "updatePurchaseState",
+    value: function updatePurchaseState(ingredients) {
+      var sum = Object.keys(ingredients).map(function (igKey) {
+        return ingredients[igKey];
+      }).reduce(function (sum, el) {
+        return sum + el;
+      }, 0);
+      this.setState({
+        purchasable: sum > 0
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var disabledInfo = _objectSpread({}, this.state.ingredients);
+
+      for (var key in disabledInfo) {
+        disabledInfo[key] = disabledInfo[key] <= 0;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Burger_Burger__WEBPACK_IMPORTED_MODULE_1__["default"], {
         ingredients: this.state.ingredients
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_BuildControls_BuildControls__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        ingredientAdded: this.addIngredientHandler
+        ingredientAdded: this.addIngredientHandler,
+        ingredientRemoved: this.removeIngredientHandler,
+        disabled: disabledInfo,
+        price: this.state.totalPrice,
+        purchasable: !this.state.purchasable
       }));
     }
   }]);
