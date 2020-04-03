@@ -205,6 +205,48 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js?!./src/components/UI/Backdrop/Backdrop.module.css":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./src/components/UI/Backdrop/Backdrop.module.css ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "._2cVmF1Lco1D2U0hIpUahNK{\n    width: 100%;\n    height: 100%;\n    position: fixed;\n    z-index: 100;\n    left: 0;\n    top: 0;\n    background-color:rgba(0,0,0,0.5);\n}", ""]);
+// Exports
+exports.locals = {
+	"Backdrop": "_2cVmF1Lco1D2U0hIpUahNK"
+};
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./src/components/UI/Modal/Modal.module.css":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./src/components/UI/Modal/Modal.module.css ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".Rgf_CagHoBRWggWj8UR-H {\n    position: fixed;\n    z-index: 500;\n    background-color: white;\n    width: 70%;\n    border: 1px solid #ccc;\n    box-shadow: 1px 1px 1px black;\n    padding: 16px;\n    left: 15%;\n    top: 30%;\n    box-sizing: border-box;\n    transition: all 0.3s ease-out;\n}\n\n@media (min-width: 600px) {\n    .Rgf_CagHoBRWggWj8UR-H {\n        width: 500px;\n        left: calc(50% - 250px);\n    }\n}", ""]);
+// Exports
+exports.locals = {
+	"Modal": "Rgf_CagHoBRWggWj8UR-H"
+};
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -30370,7 +30412,8 @@ var buildControls = function buildControls(props) {
     });
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: _BuildControls_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.OrderButton,
-    disabled: props.purchasable
+    disabled: props.purchasable,
+    onClick: props.ordered
   }, "ORDER NOW"));
 };
 
@@ -30639,6 +30682,36 @@ module.exports = exported;
 
 /***/ }),
 
+/***/ "./src/components/Burger/OrderSummary/OrderSummary.js":
+/*!************************************************************!*\
+  !*** ./src/components/Burger/OrderSummary/OrderSummary.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var orderSummary = function orderSummary(props) {
+  var ingredientSummary = Object.keys(props.ingredients).map(function (igKey) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: igKey
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      style: {
+        textTransform: 'capitalize'
+      }
+    }, igKey), " ", props.ingredients[igKey]);
+  });
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Your Order"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "A delicous burger with the following ingredients:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, ingredientSummary), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Continue to Checkout? "));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (orderSummary);
+
+/***/ }),
+
 /***/ "./src/components/Layout/Layout.js":
 /*!*****************************************!*\
   !*** ./src/components/Layout/Layout.js ***!
@@ -30696,6 +30769,130 @@ module.exports = exported;
 
 /***/ }),
 
+/***/ "./src/components/UI/Backdrop/Backdrop.js":
+/*!************************************************!*\
+  !*** ./src/components/UI/Backdrop/Backdrop.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Backdrop_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Backdrop.module.css */ "./src/components/UI/Backdrop/Backdrop.module.css");
+/* harmony import */ var _Backdrop_module_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Backdrop_module_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var backdrop = function backdrop(props) {
+  return props.show ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _Backdrop_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.Backdrop,
+    onClick: props.clicked
+  }) : null;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (backdrop);
+
+/***/ }),
+
+/***/ "./src/components/UI/Backdrop/Backdrop.module.css":
+/*!********************************************************!*\
+  !*** ./src/components/UI/Backdrop/Backdrop.module.css ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!./Backdrop.module.css */ "./node_modules/css-loader/dist/cjs.js?!./src/components/UI/Backdrop/Backdrop.module.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./src/components/UI/Modal/Modal.js":
+/*!******************************************!*\
+  !*** ./src/components/UI/Modal/Modal.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Modal_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal.module.css */ "./src/components/UI/Modal/Modal.module.css");
+/* harmony import */ var _Modal_module_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Modal_module_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Backdrop_Backdrop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Backdrop/Backdrop */ "./src/components/UI/Backdrop/Backdrop.js");
+
+
+
+
+var modal = function modal(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Backdrop_Backdrop__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    show: props.show,
+    clicked: props.modalClosed
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _Modal_module_css__WEBPACK_IMPORTED_MODULE_1___default.a.Modal,
+    style: {
+      transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
+      opacity: props.show ? '1' : '0'
+    }
+  }, props.children));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (modal);
+
+/***/ }),
+
+/***/ "./src/components/UI/Modal/Modal.module.css":
+/*!**************************************************!*\
+  !*** ./src/components/UI/Modal/Modal.module.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js??ref--5-1!./Modal.module.css */ "./node_modules/css-loader/dist/cjs.js?!./src/components/UI/Modal/Modal.module.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
 /***/ "./src/containers/BurgerBuilder/BurgerBuilder.js":
 /*!*******************************************************!*\
   !*** ./src/containers/BurgerBuilder/BurgerBuilder.js ***!
@@ -30709,6 +30906,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Burger_Burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Burger/Burger */ "./src/components/Burger/Burger.js");
 /* harmony import */ var _components_BuildControls_BuildControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/BuildControls/BuildControls */ "./src/components/BuildControls/BuildControls.js");
+/* harmony import */ var _components_UI_Modal_Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UI/Modal/Modal */ "./src/components/UI/Modal/Modal.js");
+/* harmony import */ var _components_Burger_OrderSummary_OrderSummary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Burger/OrderSummary/OrderSummary */ "./src/components/Burger/OrderSummary/OrderSummary.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -30732,6 +30931,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -30769,7 +30970,8 @@ function (_Component) {
         'bacon': 0
       },
       totalPrice: 0,
-      purchasable: false
+      purchasable: false,
+      purchasing: false
     });
 
     _defineProperty(_assertThisInitialized(_this), "addIngredientHandler", function (type) {
@@ -30815,6 +31017,18 @@ function (_Component) {
       _this.updatePurchaseState(updatedIngredients);
     });
 
+    _defineProperty(_assertThisInitialized(_this), "purchaseHandler", function () {
+      _this.setState({
+        purchasing: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "purchaseCloseHanlder", function () {
+      _this.setState({
+        purchasing: false
+      });
+    });
+
     return _this;
   }
 
@@ -30839,14 +31053,20 @@ function (_Component) {
         disabledInfo[key] = disabledInfo[key] <= 0;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Burger_Burger__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UI_Modal_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        show: this.state.purchasing,
+        modalClosed: this.purchaseCloseHanlder
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Burger_OrderSummary_OrderSummary__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        ingredients: this.state.ingredients
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Burger_Burger__WEBPACK_IMPORTED_MODULE_1__["default"], {
         ingredients: this.state.ingredients
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_BuildControls_BuildControls__WEBPACK_IMPORTED_MODULE_2__["default"], {
         ingredientAdded: this.addIngredientHandler,
         ingredientRemoved: this.removeIngredientHandler,
         disabled: disabledInfo,
         price: this.state.totalPrice,
-        purchasable: !this.state.purchasable
+        purchasable: !this.state.purchasable,
+        ordered: this.purchaseHandler
       }));
     }
   }]);
