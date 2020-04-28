@@ -7,10 +7,12 @@ we prepared a marketplace system, which allows creating aswell as editing produc
 Each product can be commented on by users.
 
 This example application makes use of Foreign Keys, Many-To-Many Fields, template tags, middlewares, views, etc... - a typical Django app.
-![](demo-video.mov)
 
-# <video width="320" height="240" controls>
-# <source src="demo-video.mov" type="video/mov">
-# </video>
 
-# IN PROGRESS DEMO: https://bit.ly/2SHOADD
+![Markety Catering Demo](demo-video.gif)
+
+
+
+
+
+# IN PROGRESS LIVE DEMO: https://bit.ly/2SHOADD
