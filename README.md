@@ -8,11 +8,9 @@ Each product can be commented on by users.
 
 This example application makes use of Foreign Keys, Many-To-Many Fields, template tags, middlewares, views, etc... - a typical Django app.
 
-
+# 
 ![Markety Catering Demo](demo-video.gif)
-
-
-
+# 
 
 
 # IN PROGRESS LIVE DEMO: https://bit.ly/2SHOADD
