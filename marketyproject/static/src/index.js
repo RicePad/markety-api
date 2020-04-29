@@ -6,4 +6,4 @@ import Secondary from './Secondary';
 import Alert from './Alert'
 
 
-ReactDOM.render(<Alert />, document.getElementById('name'));
+ReactDOM.render(<Secondary />, document.getElementById('name'));

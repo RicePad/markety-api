@@ -34598,7 +34598,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Alert__WEBPACK_IMPORTED_MODULE_5___default.a, null), document.getElementById('name'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Secondary__WEBPACK_IMPORTED_MODULE_4__["default"], null), document.getElementById('name'));
 
 /***/ })
 
