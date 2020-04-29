@@ -1,2 +1,2 @@
-const message = "Hi, I'm Jona, a college student learning to build cool things :), I created this demo to help a friend's catering business. please, check out: github.com/ricepad for more info. "
-alert(message)
+// const message = "Hi, I'm Jona, a college student learning to build cool things :), I created this demo to help a friend's catering business. please, check out: github.com/ricepad for more info. "
+// // alert(message)

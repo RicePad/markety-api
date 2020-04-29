@@ -32255,18 +32255,6 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./src/Alert.js":
-/*!**********************!*\
-  !*** ./src/Alert.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var message = "Hi, I'm Jona, a college student learning to build cool things :), I created this demo to help a friend's catering business. please, check out: github.com/ricepad for more info. ";
-alert(message);
-
-/***/ }),
-
 /***/ "./src/App.js":
 /*!********************!*\
   !*** ./src/App.js ***!
@@ -34590,9 +34578,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./src/App.js");
 /* harmony import */ var _Primary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Primary */ "./src/Primary.js");
 /* harmony import */ var _Secondary__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Secondary */ "./src/Secondary.js");
-/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Alert */ "./src/Alert.js");
-/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_Alert__WEBPACK_IMPORTED_MODULE_5__);
-
 
 
 

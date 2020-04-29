@@ -28,6 +28,39 @@ ADDRESS_CHOICES =(
     ('S', 'Shipping')
 ) 
 
+
+class Restaurant(models.Model):
+    name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=10)
+    address = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    about = models.TextField(max_length=400)
+    food_minimum = models.FloatField()
+    delivery_fee = models.FloatField()
+    is_delivery = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            slug = slugify(self.name)
+            while True:
+                try:
+                    restaurant = Restaurant.objects.get(slug=slug)
+                    if restaurant == self:
+                        self.slug = slug
+                        break
+                    else:
+                        slug = slug + '-'
+                except:
+                    self.slug = slug
+                    break
+        return super(Restaurant, self).save(*args, **kwargs)
+ 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=(""), on_delete=models.CASCADE)
     stripe_charge_id = models.CharField(max_length=50)
