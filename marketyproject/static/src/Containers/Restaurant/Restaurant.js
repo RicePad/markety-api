@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { Container, Grid, Card, CardMedia, Button, CardContent, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -22,41 +22,33 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
+
 const restaurant = () => {
+    const [restaurants, setResstaurantList] = useState([])
     
+    useEffect(() => {
+        fetch(
+            'http://localhost:3000/api/v1/restaurants/',
+          {
+            method: "GET",
+          }
+        )   
+          .then(response => response.json())
+          .then(restaurants => setResstaurantList(restaurants))
+          .catch(error => console.log(error));
+      }, [restaurants]);
+    
+
+
     const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const classes = useStyles()
-  
-    return(
-        <Fragment>
-            <Container className={classes.cardGrid} maxWidth="md">
-            <Grid container spacing={4}>
-                {cards.map((card) => {
-                    return <Grid item key={card} xs={12} sm={6} md={4}>
-                                <Card className={classes.card}> 
-                                    <CardMedia
-                                        className={classes.cardMedia}
-                                        image="https://source.unsplash.com/random"
-                                        title="Image title"
-                                        title="Image title"
-
-                                    />
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            Heading
-                                        </Typography>
-                                        <Typography>
-                                            This is a media card. You can use this section to describe the content.
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                           </Grid>
-                } )}
-            </Grid>
-            </Container>
-     </Fragment>
-
-    )
+    return (
+        <div>
+           {restaurants.map(restaurant => 
+                <p>{restaurant.name}</p>)
+           }
+        </div>
+      );
 }
 
 
