@@ -646,6 +646,52 @@ function _unsupportedIterableToArray(o, minLen) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/extends.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/AppBar/AppBar.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/AppBar/AppBar.js ***!
@@ -36455,6 +36501,104 @@ var withWidth = function withWidth() {
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/BackspaceSharp.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/BackspaceSharp.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M24 3H6l-6 9 6 9h18V3zm-5 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z"
+}), 'BackspaceSharp');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/RestaurantMenuSharp.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/RestaurantMenuSharp.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"
+}), 'RestaurantMenuSharp');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/utils/createSvgIcon.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/utils/createSvgIcon.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createSvgIcon;
+
+var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js"));
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _SvgIcon = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/SvgIcon */ "./node_modules/@material-ui/core/esm/SvgIcon/index.js"));
+
+function createSvgIcon(path, displayName) {
+  var Component = _react.default.memo(_react.default.forwardRef(function (props, ref) {
+    return _react.default.createElement(_SvgIcon.default, (0, _extends2.default)({
+      ref: ref
+    }, props), path);
+  }));
+
+  if (true) {
+    Component.displayName = "".concat(displayName, "Icon");
+  }
+
+  Component.muiName = _SvgIcon.default.muiName;
+  return Component;
+}
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/react-transition-group/lib/esm/CSSTransition.js":
 /*!***********************************************************************************!*\
   !*** ./node_modules/@material-ui/react-transition-group/lib/esm/CSSTransition.js ***!
@@ -45641,24 +45785,6 @@ module.exports = exports;
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/UI2/Card.css":
-/*!***************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/UI2/Card.css ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, ".card {\n  padding: 1rem;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);\n}\n", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/containers/Blog/Blog.css":
 /*!****************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/containers/Blog/Blog.css ***!
@@ -45922,6 +46048,29 @@ exports.locals = {
 	"Toolbar": "_1iofPyKeStMHQoE_VloSnO",
 	"Logo": "bUypTShO5YVFWL1gLgf--",
 	"DesktopOnly": "_1P1tTBxONJLHBBPnjrG_Oz"
+};
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./src/components/Restaurants/RestaurantForm.module.css":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./src/components/Restaurants/RestaurantForm.module.css ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "._1BSF-jOYaXWvcr5WMVKQu3 {\n    width: 30rem;\n    margin: 2rem auto;\n    max-width: 80%;\n  }\n  \n  ._1vHqk-BLaHPD0-VjEczPzX label,\n  ._1vHqk-BLaHPD0-VjEczPzX input {\n    display: block;\n    width: 100%;\n  }\n  \n  ._1vHqk-BLaHPD0-VjEczPzX input {\n    font: inherit;\n    padding: 0.1rem 0.25rem;\n    border: none;\n    border-bottom: 2px solid #ccc;\n    margin-bottom: 1rem;\n  }\n  \n  ._1vHqk-BLaHPD0-VjEczPzX input:focus {\n    outline: none;\n    border-bottom-color: #ff2058;\n  }\n  \n  ._2IJN4ouSZivpyfSmc8pGFm {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n  ", ""]);
+// Exports
+exports.locals = {
+	"restaurantform": "_1BSF-jOYaXWvcr5WMVKQu3",
+	"form-control": "_1vHqk-BLaHPD0-VjEczPzX",
+	"restaurant_form_actions": "_2IJN4ouSZivpyfSmc8pGFm"
 };
 module.exports = exports;
 
@@ -86269,7 +86418,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _UI2_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UI2/Card */ "./src/components/UI2/Card.js");
+/* harmony import */ var _RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RestaurantForm.module.css */ "./src/components/Restaurants/RestaurantForm.module.css");
+/* harmony import */ var _RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/icons/RestaurantMenuSharp */ "./node_modules/@material-ui/icons/RestaurantMenuSharp.js");
+/* harmony import */ var _material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/BackspaceSharp */ "./node_modules/@material-ui/icons/BackspaceSharp.js");
+/* harmony import */ var _material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -86282,12 +86436,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
   return {
     root: {
       '& > *': {
-        margin: theme.spacing(1),
+        margin: theme.spacing(3),
         width: '25ch'
+      },
+      button: {
+        margin: theme.spacing(10)
+      },
+      cardRoot: {
+        minWidth: 100
       }
     }
   };
@@ -86304,74 +86466,193 @@ var restaurantForm = function restaurantForm(props) {
       enteredPhoneNumber = _useState4[0],
       setEnteredPhoneNumber = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      enteredAddress = _useState6[0],
+      setEnteredAddress = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      enteredCity = _useState8[0],
+      setEnteredCity = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      enteredState = _useState10[0],
+      setEnteredState = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      enteredAbout = _useState12[0],
+      setEnteredAbout = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState14 = _slicedToArray(_useState13, 2),
+      enteredFoodMinimum = _useState14[0],
+      setEnteredFoodMinimum = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState16 = _slicedToArray(_useState15, 2),
+      enteredDeliveryFee = _useState16[0],
+      setEnteredDeliveryFee = _useState16[1];
+
+  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState18 = _slicedToArray(_useState17, 2),
+      enteredIsDelivery = _useState18[0],
+      setEnteredIsDelivery = _useState18[1];
+
   var classes = useStyles();
 
-  var onSubmitHandler = function onSubmitHandler() {
-    //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
-    console.log("submitting restaurant info");
+  var submitHandler = function submitHandler(event) {
+    console.log("submitting restaurant info to API");
+    event.preventDefault(); //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
+
+    alert("submitting restaurant info to API");
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UI2_Card__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    className: classes.root,
-    Submit: onSubmitHandler
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: _RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3___default.a.restaurantform
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Card"], {
+    className: classes.cardRoot,
+    variant: "outlined"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["CardContent"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Typography"], {
+    gutterBottom: true,
+    variant: "h3",
+    component: "h2",
+    align: "center"
+  }, "Create Restaurant Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: submitHandler,
+    className: classes.root
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredName,
+    onChange: function onChange(event) {
+      setEnteredName(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredPhoneNumber,
+    onChange: function onChange(event) {
+      setEnteredPhoneNumber(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredAddress,
+    onChange: function onChange(event) {
+      setEnteredAddress(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredCity,
+    onChange: function onChange(event) {
+      setEnteredCity(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredState,
+    onChange: function onChange(event) {
+      setEnteredState(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredAbout,
+    onChange: function onChange(event) {
+      setEnteredAbout(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredFoodMinimum,
+    onChange: function onChange(event) {
+      setEnteredFoodMinimum(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
+    value: enteredDeliveryFee,
+    onChange: function onChange(event) {
+      setEnteredDeliveryFee(event.target.value);
+    }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
     fullWidth: true,
     id: "outlined-basic",
     label: "Name",
     variant: "outlined",
-    defaultValue: "Hello World"
-  })))));
+    value: enteredIsDelivery,
+    onChange: function onChange(event) {
+      setEnteredIsDelivery(event.target.value);
+    }
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3___default.a.restaurant_form_actions
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    endIcon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4___default.a, null),
+    variant: "contained",
+    color: "primary",
+    className: classes.button,
+    type: "submit"
+  }, " Send"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    endIcon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5___default.a, null),
+    className: classes.button,
+    variant: "contained",
+    color: "secondary",
+    href: "http://localhost:3000/react-view"
+  }, "Close")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (restaurantForm);
+
+/***/ }),
+
+/***/ "./src/components/Restaurants/RestaurantForm.module.css":
+/*!**************************************************************!*\
+  !*** ./src/components/Restaurants/RestaurantForm.module.css ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--5-1!./RestaurantForm.module.css */ "./node_modules/css-loader/dist/cjs.js?!./src/components/Restaurants/RestaurantForm.module.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
 
 /***/ }),
 
@@ -86670,63 +86951,6 @@ var exported = content.locals ? content.locals : {};
 
 
 module.exports = exported;
-
-/***/ }),
-
-/***/ "./src/components/UI2/Card.css":
-/*!*************************************!*\
-  !*** ./src/components/UI2/Card.css ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!./Card.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/UI2/Card.css");
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-var exported = content.locals ? content.locals : {};
-
-
-
-module.exports = exported;
-
-/***/ }),
-
-/***/ "./src/components/UI2/Card.js":
-/*!************************************!*\
-  !*** ./src/components/UI2/Card.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Card_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card.css */ "./src/components/UI2/Card.css");
-/* harmony import */ var _Card_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Card_css__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-var Card = function Card(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, props.children);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Card);
 
 /***/ }),
 
