@@ -33,7 +33,10 @@ const restaurant = () => {
     } else {
         return (
             <div>
-                <RestaurantForm />
+                <section>
+                    <RestaurantForm />
+                </section>
+                <br/>
                 <section>
                     <RestaurantList restaurants={restaurantData}/>
                 </section>
