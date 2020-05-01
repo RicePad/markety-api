@@ -1,5 +1,7 @@
 
+
 {% extends 'base.html'%}
+{% load static %}
 
 {% block content %}
     <!-- ================================
@@ -73,7 +75,8 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>   
+
                 <!-- Start .col-md-4 -->
                 {% for item in item_list%}
                     <div class="col-lg-4 col-md-6">
@@ -254,6 +257,7 @@
                                 
                             </div>
                             <!-- Ends: .product-excerpt -->
+
                         </div>
                         <!-- Ends: .product-single -->
                     </div>
@@ -261,6 +265,8 @@
                 <!-- Ends: .product-list -->
             </div>
         </div>
+         <div><span id='name'></span></div>
+
     </section>
     <!-- ================================
     Ends Latest Product
@@ -462,6 +468,9 @@
         window.autocomplete.setup()
     });
 </script>
-    
+
+<script src="{% static 'dist/app.bundle.js' %}" charset="utf-8"></script>
+
 
 {% endblock content %}
+
