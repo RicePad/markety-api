@@ -1,13 +1,16 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { TextField, Button, Card, CardContent, Typography } from '@material-ui/core';
+import { TextField, Button, Card, CardContent, Typography, Input } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './RestaurantForm.module.css';
 import RestaurantMenuSharpIcon from '@material-ui/icons/RestaurantMenuSharp';
 import BackspaceSharpIcon from '@material-ui/icons/BackspaceSharp';
 import axios from 'axios'
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken";
 
-
-
+// add authentication with correct id 
+// change database attributes to correct type
+// add ui design to attributes
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,41 +30,42 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const restaurantForm = (props) => {
-    const [enteredName, setEnteredName] = useState('');
-    const [enteredPhoneNumber, setEnteredPhoneNumber] = useState('');
-    const [enteredAddress, setEnteredAddress] = useState('');
-    const [enteredCity, setEnteredCity] = useState('');
-    const [enteredState, setEnteredState] = useState('');
-    const [enteredAbout, setEnteredAbout] = useState('');
-    const [enteredFoodMinimum, setEnteredFoodMinimum] = useState('');
-    const [enteredDeliveryFee, setEnteredDeliveryFee] = useState('');
-    const [enteredIsDelivery, setEnteredIsDelivery] = useState('');
-
-    const [postData, setPost] = useState({
-        title: '', content: '', author: ''
-    })
-    
+    const [restaurantData, setRestaurantData] = useState(
+        {name: '', phone_number: '', address: '', 
+        city: '', state: '', about: '', food_minimum: '',
+        delivery_fee: '', is_delivery: '' }
+        )
     
     const classes = useStyles();
 
     const handleChange = (event) => {
-        setPost({...postData, [event.target.name]: event.target.value})
+        // console.log('event:', event)
+        setRestaurantData({...restaurantData, [event.target.name]: event.target.value})
     }
-
-
 
     const submitHandler = (event) => {
             console.log("submitting restaurant info to API")
+            console.log('restaurantdata:', restaurantData)
+
             event.preventDefault()
             //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
             
-            const URL_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+            const URL_ENDPOINT = 'http://localhost:3000/api/v1/restaurants/';
+            
+            const username = 'jona@example.com'
+            const password = 'testing123'
+
+            const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64')
               
-            axios.post(URL_ENDPOINT, postData)
-            .then(function (response) {
+            axios.post(URL_ENDPOINT, restaurantData, {
+                headers: {
+                    'Authorization': `Basic ${token}`,
+                    "content-type": "application/json"
+                  }})
+            .then((response) => {
                 console.log(response)
             })
-            .catch(function (error) {
+            .catch((error) => {
                 console.log(error)
             }) 
            
@@ -77,16 +81,14 @@ const restaurantForm = (props) => {
                             Create Restaurant Profile
                         </Typography>
                         <form onSubmit={submitHandler} className={classes.root} >
-                            {/* <div>
+                            <div>
                                 <TextField 
                                     fullWidth
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
-                                    value={enteredName}
-                                    onChange={(event) => {
-                                        setEnteredName(event.target.value)
-                                    }}
+                                    onChange={handleChange}
+                                    name="name"
                                     />
                             </div>
                             <div>
@@ -95,10 +97,10 @@ const restaurantForm = (props) => {
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
-                                    value={enteredPhoneNumber}
-                                    onChange={(event) => {
-                                        setEnteredPhoneNumber(event.target.value)
-                                    }}
+                                    onChange={handleChange}
+                                    name="phone_number"
+                                  
+
 
                                     />
                             </div>
@@ -108,10 +110,8 @@ const restaurantForm = (props) => {
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
-                                    value={enteredAddress}
-                                    onChange={(event) => {
-                                        setEnteredAddress(event.target.value)
-                                    }}
+                                    onChange={handleChange}
+                                    name="address"
 
                                     />
                             </div>
@@ -121,10 +121,38 @@ const restaurantForm = (props) => {
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
-                                    value={enteredCity}
-                                    onChange={(event) => {
-                                        setEnteredCity(event.target.value)
-                                    }}
+                                    onChange={handleChange}
+                                    name="city"
+                                    />
+                            </div>
+                            <div>
+                                <TextField 
+                                    fullWidth
+                                    id="outlined-basic" 
+                                    label="Name" 
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    name="state"
+                                    />
+                            </div>
+                            <div>
+                                <TextField 
+                                    fullWidth
+                                    id="outlined-basic" 
+                                    label="Name" 
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    name="about"
+                                    />
+                            </div>
+                            <div>
+                                <TextField 
+                                    fullWidth
+                                    id="outlined-basic" 
+                                    label="Name" 
+                                    variant="outlined"
+                                    onChange={handleChange}
+                                    name="food_minimum"
 
                                     />
                             </div>
@@ -134,22 +162,8 @@ const restaurantForm = (props) => {
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
-                                    value={enteredState}
-                                    onChange={(event) => {
-                                        setEnteredState(event.target.value)
-                                    }}
-                                    />
-                            </div>
-                            <div>
-                                <TextField 
-                                    fullWidth
-                                    id="outlined-basic" 
-                                    label="Name" 
-                                    variant="outlined"
-                                    value={enteredAbout}
-                                    onChange={(event) => {
-                                        setEnteredAbout(event.target.value)
-                                    }}
+                                    onChange={handleChange}
+                                    name="delivery_fee"
 
                                     />
                             </div>
@@ -159,36 +173,8 @@ const restaurantForm = (props) => {
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
-                                    value={enteredFoodMinimum}
-                                    onChange={(event) => {
-                                        setEnteredFoodMinimum(event.target.value)
-                                    }}
-
-                                    />
-                            </div>
-                            <div>
-                                <TextField 
-                                    fullWidth
-                                    id="outlined-basic" 
-                                    label="Name" 
-                                    variant="outlined"
-                                    value={enteredDeliveryFee}
-                                    onChange={(event) => {
-                                        setEnteredDeliveryFee(event.target.value)
-                                    }}
-
-                                    />
-                            </div>
-                            <div>
-                                <TextField 
-                                    fullWidth
-                                    id="outlined-basic" 
-                                    label="Name" 
-                                    variant="outlined"
-                                    value={enteredIsDelivery}
-                                    onChange={(event) => {
-                                        setEnteredIsDelivery(event.target.value)
-                                    }}
+                                    onChange={handleChange}
+                                    name="is_delivery"
                                     />
                             </div>
                             <div className={styles.restaurant_form_actions}>
@@ -198,6 +184,7 @@ const restaurantForm = (props) => {
                                     color="primary"
                                     className={classes.button}
                                     type="submit"
+                                    
 
                                 > Send
                                 </Button>
@@ -211,22 +198,8 @@ const restaurantForm = (props) => {
                                 >
                                     Close
                                 </Button>
-                            </div> */}
-                        <div className="input-field">
-                            <label htmlFor="lastName">title</label>
-                            <input type="text" name="title" value={postData.title} onChange={handleChange} required />
-                        </div>
-                        <div className="input-field">
-                            <label htmlFor="lastName">content</label>
-                            <input type="text" name="content" value={postData.content} onChange={handleChange} required />
-                        </div>
-                        <div className="input-field">
-                            <label htmlFor="lastName">author</label>
-                            <input type="text" name="author" value={postData.author} onChange={handleChange} required />
-                        </div>
-                        <div className="input-field"> 
-                            <button className="btn blue darken-3" type="submit">Sign Up</button>
-                        </div>
+                            </div>
+                        
                                 
                         </form>
                     </CardContent>

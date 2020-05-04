@@ -86414,7 +86414,7 @@ var post = function post(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* WEBPACK VAR INJECTION */(function(Buffer) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
@@ -86447,6 +86447,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+axios__WEBPACK_IMPORTED_MODULE_6___default.a.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios__WEBPACK_IMPORTED_MODULE_6___default.a.defaults.xsrfCookieName = "csrftoken"; // add authentication with correct id 
+// change database attributes to correct type
+// add ui design to attributes
+
 var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
   return {
     root: {
@@ -86465,72 +86470,43 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["ma
 });
 
 var restaurantForm = function restaurantForm(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState2 = _slicedToArray(_useState, 2),
-      enteredName = _useState2[0],
-      setEnteredName = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      enteredPhoneNumber = _useState4[0],
-      setEnteredPhoneNumber = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState6 = _slicedToArray(_useState5, 2),
-      enteredAddress = _useState6[0],
-      setEnteredAddress = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState8 = _slicedToArray(_useState7, 2),
-      enteredCity = _useState8[0],
-      setEnteredCity = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState10 = _slicedToArray(_useState9, 2),
-      enteredState = _useState10[0],
-      setEnteredState = _useState10[1];
-
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState12 = _slicedToArray(_useState11, 2),
-      enteredAbout = _useState12[0],
-      setEnteredAbout = _useState12[1];
-
-  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState14 = _slicedToArray(_useState13, 2),
-      enteredFoodMinimum = _useState14[0],
-      setEnteredFoodMinimum = _useState14[1];
-
-  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState16 = _slicedToArray(_useState15, 2),
-      enteredDeliveryFee = _useState16[0],
-      setEnteredDeliveryFee = _useState16[1];
-
-  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
-      _useState18 = _slicedToArray(_useState17, 2),
-      enteredIsDelivery = _useState18[0],
-      setEnteredIsDelivery = _useState18[1];
-
-  var _useState19 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    title: '',
-    content: '',
-    author: ''
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    name: '',
+    phone_number: '',
+    address: '',
+    city: '',
+    state: '',
+    about: '',
+    food_minimum: '',
+    delivery_fee: '',
+    is_delivery: ''
   }),
-      _useState20 = _slicedToArray(_useState19, 2),
-      postData = _useState20[0],
-      setPost = _useState20[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      restaurantData = _useState2[0],
+      setRestaurantData = _useState2[1];
 
   var classes = useStyles();
 
   var handleChange = function handleChange(event) {
-    setPost(_objectSpread({}, postData, _defineProperty({}, event.target.name, event.target.value)));
+    // console.log('event:', event)
+    setRestaurantData(_objectSpread({}, restaurantData, _defineProperty({}, event.target.name, event.target.value)));
   };
 
   var submitHandler = function submitHandler(event) {
     console.log("submitting restaurant info to API");
+    console.log('restaurantdata:', restaurantData);
     event.preventDefault(); //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
 
-    var URL_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
-    axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(URL_ENDPOINT, postData).then(function (response) {
+    var URL_ENDPOINT = 'http://localhost:3000/api/v1/restaurants/';
+    var username = 'jona@example.com';
+    var password = 'testing123';
+    var token = Buffer.from("".concat(username, ":").concat(password), 'utf8').toString('base64');
+    axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(URL_ENDPOINT, restaurantData, {
+      headers: {
+        'Authorization': "Basic ".concat(token),
+        "content-type": "application/json"
+      }
+    }).then(function (response) {
       console.log(response);
     })["catch"](function (error) {
       console.log(error);
@@ -86550,45 +86526,88 @@ var restaurantForm = function restaurantForm(props) {
   }, "Create Restaurant Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: submitHandler,
     className: classes.root
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "input-field"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "lastName"
-  }, "title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    name: "title",
-    value: postData.title,
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
     onChange: handleChange,
-    required: true
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "input-field"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "lastName"
-  }, "content"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    name: "content",
-    value: postData.content,
+    name: "name"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
     onChange: handleChange,
-    required: true
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "input-field"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    htmlFor: "lastName"
-  }, "author"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    name: "author",
-    value: postData.author,
+    name: "phone_number"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
     onChange: handleChange,
-    required: true
+    name: "address"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
+    onChange: handleChange,
+    name: "city"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
+    onChange: handleChange,
+    name: "state"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
+    onChange: handleChange,
+    name: "about"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
+    onChange: handleChange,
+    name: "food_minimum"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
+    onChange: handleChange,
+    name: "delivery_fee"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+    fullWidth: true,
+    id: "outlined-basic",
+    label: "Name",
+    variant: "outlined",
+    onChange: handleChange,
+    name: "is_delivery"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "input-field"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn blue darken-3",
+    className: _RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3___default.a.restaurant_form_actions
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    endIcon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4___default.a, null),
+    variant: "contained",
+    color: "primary",
+    className: classes.button,
     type: "submit"
-  }, "Sign Up")))))));
+  }, " Send"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    endIcon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5___default.a, null),
+    className: classes.button,
+    variant: "contained",
+    color: "secondary",
+    href: "http://localhost:3000/react-view"
+  }, "Close")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (restaurantForm);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
 
 /***/ }),
 

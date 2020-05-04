@@ -14,7 +14,7 @@ boto3
 django-storages
 django-haystack==2.8.1
 elasticsearch==2.4.1
-
+django-cors-headers
 
 
 

@@ -37,9 +37,9 @@ class Restaurant(models.Model):
     state = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     about = models.TextField(max_length=400)
-    food_minimum = models.FloatField()
-    delivery_fee = models.FloatField()
-    is_delivery = models.BooleanField(default=True)
+    food_minimum = models.CharField(max_length=200)
+    delivery_fee = models.CharField(max_length=200)
+    is_delivery = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
