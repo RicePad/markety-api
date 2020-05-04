@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import styles from './RestaurantForm.module.css';
 import RestaurantMenuSharpIcon from '@material-ui/icons/RestaurantMenuSharp';
 import BackspaceSharpIcon from '@material-ui/icons/BackspaceSharp';
+import axios from 'axios'
+
 
 
 
@@ -35,16 +37,35 @@ const restaurantForm = (props) => {
     const [enteredDeliveryFee, setEnteredDeliveryFee] = useState('');
     const [enteredIsDelivery, setEnteredIsDelivery] = useState('');
 
+    const [postData, setPost] = useState({
+        title: '', content: '', author: ''
+    })
     
     
     const classes = useStyles();
+
+    const handleChange = (event) => {
+        setPost({...postData, [event.target.name]: event.target.value})
+    }
+
 
 
     const submitHandler = (event) => {
             console.log("submitting restaurant info to API")
             event.preventDefault()
             //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
-            alert("submitting restaurant info to API")
+            
+            const URL_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+              
+            axios.post(URL_ENDPOINT, postData)
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error)
+            }) 
+           
+
         }
 
     return(
@@ -56,7 +77,7 @@ const restaurantForm = (props) => {
                             Create Restaurant Profile
                         </Typography>
                         <form onSubmit={submitHandler} className={classes.root} >
-                            <div>
+                            {/* <div>
                                 <TextField 
                                     fullWidth
                                     id="outlined-basic" 
@@ -190,7 +211,23 @@ const restaurantForm = (props) => {
                                 >
                                     Close
                                 </Button>
-                            </div>
+                            </div> */}
+                        <div className="input-field">
+                            <label htmlFor="lastName">title</label>
+                            <input type="text" name="title" value={postData.title} onChange={handleChange} required />
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="lastName">content</label>
+                            <input type="text" name="content" value={postData.content} onChange={handleChange} required />
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="lastName">author</label>
+                            <input type="text" name="author" value={postData.author} onChange={handleChange} required />
+                        </div>
+                        <div className="input-field"> 
+                            <button className="btn blue darken-3" type="submit">Sign Up</button>
+                        </div>
+                                
                         </form>
                     </CardContent>
                     </Card>

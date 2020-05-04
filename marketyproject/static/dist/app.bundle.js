@@ -86424,6 +86424,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/icons/BackspaceSharp */ "./node_modules/@material-ui/icons/BackspaceSharp.js");
 /* harmony import */ var _material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -86431,6 +86439,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -86501,13 +86510,31 @@ var restaurantForm = function restaurantForm(props) {
       enteredIsDelivery = _useState18[0],
       setEnteredIsDelivery = _useState18[1];
 
+  var _useState19 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    title: '',
+    content: '',
+    author: ''
+  }),
+      _useState20 = _slicedToArray(_useState19, 2),
+      postData = _useState20[0],
+      setPost = _useState20[1];
+
   var classes = useStyles();
+
+  var handleChange = function handleChange(event) {
+    setPost(_objectSpread({}, postData, _defineProperty({}, event.target.name, event.target.value)));
+  };
 
   var submitHandler = function submitHandler(event) {
     console.log("submitting restaurant info to API");
     event.preventDefault(); //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
 
-    alert("submitting restaurant info to API");
+    var URL_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+    axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(URL_ENDPOINT, postData).then(function (response) {
+      console.log(response);
+    })["catch"](function (error) {
+      console.log(error);
+    });
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -86523,102 +86550,42 @@ var restaurantForm = function restaurantForm(props) {
   }, "Create Restaurant Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: submitHandler,
     className: classes.root
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredName,
-    onChange: function onChange(event) {
-      setEnteredName(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredPhoneNumber,
-    onChange: function onChange(event) {
-      setEnteredPhoneNumber(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredAddress,
-    onChange: function onChange(event) {
-      setEnteredAddress(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredCity,
-    onChange: function onChange(event) {
-      setEnteredCity(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredState,
-    onChange: function onChange(event) {
-      setEnteredState(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredAbout,
-    onChange: function onChange(event) {
-      setEnteredAbout(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredFoodMinimum,
-    onChange: function onChange(event) {
-      setEnteredFoodMinimum(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredDeliveryFee,
-    onChange: function onChange(event) {
-      setEnteredDeliveryFee(event.target.value);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
-    fullWidth: true,
-    id: "outlined-basic",
-    label: "Name",
-    variant: "outlined",
-    value: enteredIsDelivery,
-    onChange: function onChange(event) {
-      setEnteredIsDelivery(event.target.value);
-    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "input-field"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "lastName"
+  }, "title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    name: "title",
+    value: postData.title,
+    onChange: handleChange,
+    required: true
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: _RestaurantForm_module_css__WEBPACK_IMPORTED_MODULE_3___default.a.restaurant_form_actions
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    endIcon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_RestaurantMenuSharp__WEBPACK_IMPORTED_MODULE_4___default.a, null),
-    variant: "contained",
-    color: "primary",
-    className: classes.button,
+    className: "input-field"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "lastName"
+  }, "content"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    name: "content",
+    value: postData.content,
+    onChange: handleChange,
+    required: true
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "input-field"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "lastName"
+  }, "author"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    name: "author",
+    value: postData.author,
+    onChange: handleChange,
+    required: true
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "input-field"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn blue darken-3",
     type: "submit"
-  }, " Send"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    endIcon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_BackspaceSharp__WEBPACK_IMPORTED_MODULE_5___default.a, null),
-    className: classes.button,
-    variant: "contained",
-    color: "secondary",
-    href: "http://localhost:3000/react-view"
-  }, "Close")))))));
+  }, "Sign Up")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (restaurantForm);
