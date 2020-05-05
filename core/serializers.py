@@ -17,4 +17,4 @@ class OrderItemSerializer(serializers.ModelSerializer):
 class RestaurantItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
-        fields = ('name', 'phone_number', 'address', 'city', 'state', 'about', 'food_minimum', 'delivery_fee', 'is_delivery')
+        fields = ('user', 'name', 'phone_number', 'address', 'city', 'state', 'about', 'food_minimum', 'delivery_fee', 'is_delivery')

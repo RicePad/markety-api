@@ -31,7 +31,7 @@ ADDRESS_CHOICES =(
 
 
 class Restaurant(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=10)
     address = models.CharField(max_length=200)
