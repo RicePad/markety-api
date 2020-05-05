@@ -1,6 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Container, Grid, Card, CardMedia, Button, CardContent, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import RestaurantList from '../../components/Restaurants/RestaurantList';
 import RestaurantForm from '../../components/Restaurants/RestaurantForm';
 
