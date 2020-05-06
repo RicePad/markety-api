@@ -60,6 +60,7 @@ INSTALLED_APPS = [
    
     #Pip installs
     'rest_framework',
+    'rest_framework.authtoken',
     'djoser',
     'compressor',
     'storages',

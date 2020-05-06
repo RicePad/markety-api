@@ -19,11 +19,12 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
-from core.api_views import ItemAPIViewSet, OrderItemAPIViewSet, RestaurantAPIViewSet
+from core.api_views import ItemAPIViewSet, OrderItemAPIViewSet, RestaurantAPIViewSet, UserAPIViewSet
 
 
 #API ROUTING
 router = routers.DefaultRouter()
+router.register('users', UserAPIViewSet)
 router.register('restaurants', RestaurantAPIViewSet)
 router.register('items', ItemAPIViewSet)
 router.register('order-items', OrderItemAPIViewSet)
