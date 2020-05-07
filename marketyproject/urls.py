@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from core.api_views import ItemAPIViewSet, OrderItemAPIViewSet, RestaurantAPIViewSet, UserAPIViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 #API ROUTING
@@ -39,6 +40,7 @@ urlpatterns = [
     path('search/', include('haystack.urls')),
     path('api/v1/', include(router.urls)),
     path('api/auth', include('djoser.urls.authtoken')),
+    path('auth/', obtain_auth_token),
 
 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

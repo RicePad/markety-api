@@ -3,7 +3,6 @@ from .models import Item, OrderItem, Restaurant
 from django.contrib.auth.models import User
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
-
 from .serializers import ItemSerializer, OrderItemSerializer, RestaurantItemSerializer, UserSerializer
 from rest_framework.permissions import IsAdminUser, SAFE_METHODS
 
