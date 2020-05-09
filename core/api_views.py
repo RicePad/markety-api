@@ -16,14 +16,22 @@ class UserAPIViewSet(viewsets.ModelViewSet):
 class ItemAPIViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated,)
 
 
 class OrderItemAPIViewSet(viewsets.ModelViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated,)
+
 
 class RestaurantAPIViewSet(viewsets.ModelViewSet):
     queryset = Restaurant.objects.all()
     serializer_class = RestaurantItemSerializer
+    authentication_classes = (TokenAuthentication, )
+    
+
 
 

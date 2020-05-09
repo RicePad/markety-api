@@ -41,6 +41,9 @@ def autocomplete(request):
 class ReactView(TemplateView):
     template_name = "react_component.html"
 
+class ReactRegistrationView(TemplateView):
+    template_name = "react_registration.html"
+
 class HomeView(ListView):
     model = Item
     context_object_name = "item_list"

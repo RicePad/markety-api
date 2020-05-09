@@ -13,6 +13,7 @@ from .views import (
     ItemResultView,
     autocomplete,
     ReactView,
+    ReactRegistrationView,   
     )
 
 
@@ -31,7 +32,9 @@ urlpatterns = [
     path('remove-item-from-cart/<slug>', remove_single_item_from_cart, name="remove-single-item-from-cart"),
     path('checkout/', CheckoutView.as_view(), name="checkout" ),
     path('payment/<payment_option>', PaymentView.as_view(), name="payment"),
-    path('react-view', ReactView.as_view(), name="react-view")
+    path('react-view', ReactView.as_view(), name="react-view"),
+    path('react-register', ReactRegistrationView.as_view(), name="react-registration")
+
 
 
 ]

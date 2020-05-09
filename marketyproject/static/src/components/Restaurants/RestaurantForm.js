@@ -8,7 +8,6 @@ import axios from 'axios'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
-// add authentication with correct id 
 // change database attributes to correct type
 // add ui design to attributes
 
@@ -29,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+
+
 const restaurantForm = (props) => {
     const [restaurantData, setRestaurantData] = useState(
         {name: '', phone_number: '', address: '', 
@@ -43,34 +44,30 @@ const restaurantForm = (props) => {
         setRestaurantData({...restaurantData, [event.target.name]: event.target.value})
     }
 
-    const submitHandler = (event) => {
-            console.log("submitting restaurant info to API")
-            console.log('restaurantdata:', restaurantData)
-
-            event.preventDefault()
-            //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
-            
-            const URL_ENDPOINT = 'http://localhost:3000/api/v1/restaurants/';
-            
-            const username = 'jona@example.com'
-            const password = 'testing123'
-
-            const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64')
-              
-            axios.post(URL_ENDPOINT, restaurantData, {
-                headers: {
-                    'Authorization': `Basic ${token}`,
-                    "content-type": "application/json"
-                  }})
-            .then((response) => {
-                console.log(response)
-            })
-            .catch((error) => {
-                console.log(error)
-            }) 
-           
-
-        }
+    const submitRestaurantHandler = (event) => {
+        let  tokenID = props.token 
+        console.log('tokenID: ', tokenID )
+        console.log("submitting restaurant info to API")
+        console.log('restaurantdata:', restaurantData)
+        event.preventDefault()
+        //POST REQUEST ACTION TO CREATE A RESTAURANT AFTER SUBMITTING FORM
+        
+        const URL_ENDPOINT = 'http://localhost:3000/api/v1/restaurants/';
+    
+        const token = props.token
+          
+        axios.post(URL_ENDPOINT, restaurantData, {
+            headers: {
+                'Authorization': `Token ${token}`,
+                "content-type": "application/json"
+              }})
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((error) => {
+            console.log(error)
+        }) 
+    }
 
     return(
         <Fragment>
@@ -80,27 +77,25 @@ const restaurantForm = (props) => {
                         <Typography gutterBottom variant="h3" component="h2" align="center">
                             Create Restaurant Profile
                         </Typography>
-                        <form onSubmit={submitHandler} className={classes.root} >
+                        <form onSubmit={submitRestaurantHandler} className={classes.root} >
                             <div>
                                 <TextField 
+                                    name="name"
                                     fullWidth
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
                                     onChange={handleChange}
-                                    name="name"
                                     />
                             </div>
                             <div>
                                 <TextField 
+                                    name="phone_number"
                                     fullWidth
                                     id="outlined-basic" 
                                     label="Name" 
                                     variant="outlined"
                                     onChange={handleChange}
-                                    name="phone_number"
-                                  
-
 
                                     />
                             </div>

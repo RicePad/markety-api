@@ -35,7 +35,7 @@ class Login extends Component {
                 .then( res => {
                     console.log('successful-login-cookies:', res.token);
                     this.props.cookies.set('mr-token', res.token);
-                    // window.location.href = "/";
+                    window.location.href = "/react-view";
 
                 })
                 .catch( error => console.log(error))

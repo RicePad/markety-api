@@ -12,7 +12,7 @@ import Login from './components/Login/Login';
 const routing = (
     <BrowserRouter>
         <CookiesProvider>
-            {/* <Route exact path="/react-view" component={Login}/> */}
+            <Route exact path="/react-register" component={Login}/>
             <Route exact path="/react-view" component={RestaurantApp}/>
         </CookiesProvider>
     </BrowserRouter>
