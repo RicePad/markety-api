@@ -31,7 +31,8 @@ class RestaurantAPIViewSet(viewsets.ModelViewSet):
     queryset = Restaurant.objects.all()
     serializer_class = RestaurantItemSerializer
     authentication_classes = (TokenAuthentication, )
-    
+    permission_classes = (IsAuthenticated,)
+
 
 
 
